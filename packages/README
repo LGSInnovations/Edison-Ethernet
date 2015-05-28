@@ -1,0 +1,8 @@
+The packages in this directory typically fail to download from their respective sources.
+
+They have been manually retrieved and should be placed in the edison build tree in:
+
+edison-src/bbcache/downloads
+
+You can re-run bitbake edison-image and it should pick these files up and not attempt
+(and fail) to download them again.
