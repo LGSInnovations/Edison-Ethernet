@@ -53,6 +53,9 @@ Ethernet
 Other Components
 •	2x 10kΩ Resistor Ties Reset high, could be tied to an Edison GPIO pin or a button with a pullup resistor to enable resetting the chip on command. Second resistor enables Auto-MDIX by tying it high. 
 •	2x 12.4kΩ Resistor Biases USB and Ethernet references
+•	1x Male 70-Pin Hirose connector (Header – Passthrough to other boards) Hirose #DF40C-70DP-0.4V(51)
+•	1x Female  70–Pin Hirose receptacle DF40C(X.X)-70DS-0.4V(51) – “X.X” Refers to the stack height (ex. 3.0 means 3.0mm height)
+
 
 
 
@@ -86,3 +89,6 @@ Other
 •	1x Diode
 •	1x Polyfuse
 •	2x 2.0 Amp/0.05 DCR Inductors/Ferrite Beads
+•	1x Male Hirose Connector
+•	1x Female Hirose Connector
+
