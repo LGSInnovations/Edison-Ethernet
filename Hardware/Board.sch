@@ -15991,7 +15991,7 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <part name="+3V8" library="supply1" deviceset="+3V3" device=""/>
 <part name="R11" library="resistor" deviceset="R-US_" device="R0402" value="330"/>
 <part name="R12" library="resistor" deviceset="R-US_" device="R0402" value="330"/>
-<part name="LED1" library="led" deviceset="LED" device="CHIPLED_0603" value="Green LED"/>
+<part name="LED1" library="led" deviceset="LED" device="CHIP-LED0805" value="Green LED"/>
 <part name="R13" library="resistor" deviceset="R-US_" device="R0402" value="330"/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
 <part name="U$1" library="SparkFun-FreqCtrl" deviceset="CRYSTAL-GROUNDED" device="" value="25MHz"/>
