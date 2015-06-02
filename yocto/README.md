@@ -165,12 +165,12 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 	auto enp0s17u1u1
 	iface enp0s17u1u1 inet dhcp
 	```
-4. Bring the network interface up with `ifup` and the interface name. Ignore any errors from run-parts about directories not existing.
+4. Bring the network interface up with `ifup` and the interface name. Ignore any errors from `run-parts` about directories not existing.
 
 	Run: `ifup enp0s17u1u1`
 	This should tell you something about discovering the network interface and assigning it an IP address (using DHCP).
 
-5. You can now test that your card is setup properly by running `ping xx.xx.xx.xx` on the edison's IP address from your host Linux machine.
+5. You can now test that your card is setup properly by running `ping xx.xx.xx.xx` on the Edison's IP address from your host Linux machine.
 
 6. You must now either run `edison_configure --setup` but do not enable wifi. You will be asked to give a root password and name your Edison. If you do not provide a root password, you will have to edit the `/lib/systemd/system/sshd.socket` file, as shown below:
 
@@ -183,7 +183,7 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 
 	Then reboot by running: `reboot`.
 
-	(more into [here](https://communities.intel.com/message/254323#254323)).
+	(more info [here](https://communities.intel.com/message/254323#254323)).
 
 7. You should now be able to ssh into your Edison!
 
