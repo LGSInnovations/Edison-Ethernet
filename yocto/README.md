@@ -60,12 +60,7 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 	+-- pub/
 	```
 
-5. source the shell environment [note this is for 64-bit linux builds!]
-	```bash
-	
-	```
-
- *Some systems (mostly those behind a firewall) will have problems fetching some packages.  They are on in this repo at `Edison-Ethernet/packages/`.  Download the directory and move the files to `~/edison-src/bbcache/downloads`.*
+ *5. Some systems (mostly those behind a firewall) will have problems fetching some packages.  They are on in this repo at `Edison-Ethernet/packages/`.  Download the directory and move the files to `~/edison-src/bbcache/downloads`.*
 
  An example of downloading these packages from the repo might be:
 	```bash
@@ -75,25 +70,21 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 
 6. bitbake your shiny new edison image.  **This could take hours the first time.** This can be done in two ways:
 	1. Sourcing the shell environment and then running `bitbake`.
-	2. Using the Makefile.
-	```bash
-	bitbake edison-image
-	```
 
- **Option 1:** *(Note that this is for 64-bit Linux host machines!)*
- ```bash
- cd ~/edison-src/out/linux64
- source poky/oe-init-build-env
- ```
- This will automatically put you in the `~/edison-src/build` directory. Then run:
- ```bash
- bitbake edison-image
- ```
+		 ```bash
+		 cd ~/edison-src/out/linux64
+		 source poky/oe-init-build-env
+		 ```
+		 This will automatically put you in the `~/edison-src/build` directory. Then run:
+		 ```bash
+		 bitbake edison-image
+		 ```
+	2. Using the Makefile. *(make sure you are in the `~/edison-src` directory).*
 
- **Option 2:** *(make sure you are in the `~/edison-src` directory)*
- ```bash
- make
- ```
+		 **Option 2:** 
+		 ```bash
+		 make
+		 ```
 
 After a number of hours (e.g., 4) come back to configure the kernel.
 
@@ -106,7 +97,7 @@ After a number of hours (e.g., 4) come back to configure the kernel.
 	bitbake linux-yocto -c menuconfig
 	```
 
-2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kdb><kbd>esc</kdb> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
+2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kbd><kbd>esc</kdb> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
 
 Device Drivers --->
 	[*] Network Device Support --->
@@ -153,3 +144,47 @@ execute the existing postBuild.sh with an argument that is the full path to the 
 13) If using ubilinux download their setup from: http://www.emutexlabs.com/ubilinux
 --> Pick the ubilinux for Intel Edison or
 --> wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz
+
+-----------------------------------------------------------------------
+
+##Setting up the Network Interface for Yocto##
+
+This walks through assigning your LAN9512 an IP address and enabling ssh.
+
+Follow these steps after `screen`'ing into your Edison from your host Linux machine, as described [here](https://software.intel.com/en-us/setting-up-serial-terminal-on-system-with-linux) (i.e., `sudo screen /dev/ttyUSB0 115200`).
+
+1. Create an interfaces file for use with `ifup` and `ifconfig`. For a brief description of the `ifup` command, see [here](http://www.computerhope.com/unix/ifup.htm) or the man page.
+	1. Create the `/etc/network` directory: `mkdir /etc/network`.
+	2. Create the `/etc/network/interfaces` file: `touch /etc/network/interfaces`.
+2. Find the name of the LAN9512 adapter. A very simple way is to use the `ifconfig` command with the `-a` flag to show all connected and disconnected interfaces. With the LAN9512 disconnected, run `ifconfig -a`. Then, connect the adapter and run `ifconfig -a` again. Note the name of the newly added interface. Mine was `enp0s17u1u1`.
+	- For extra information, use the `dmesg` tool to view the kernel log and verify that the kernel found the device. You can run `dmesg | grep -i network` to find when the kernel recognized the network device, and when it gave it a name.
+3. Edit the `/etc/network/interfaces` file and add the configuration: `vi /etc/network/interfaces`
+
+	Add the following: *(be sure to double check the interface name)*
+	```bash
+	auto enp0s17u1u1
+	iface enp0s17u1u1 inet dhcp
+	```
+4. Bring the network interface up with `ifup` and the interface name. Ignore any errors from run-parts about directories not existing.
+
+	Run: `ifup enp0s17u1u1`
+	This should tell you something about discovering the network interface and assigning it an IP address (using DHCP).
+
+5. You can now test that your card is setup properly by running `ping xx.xx.xx.xx` on the edison's IP address from your host Linux machine.
+
+6. You must now either run `edison_configure --setup` but do not enable wifi. You will be asked to give a root password and name your Edison. If you do not provide a root password, you will have to edit the `/lib/systemd/system/sshd.socket` file, as shown below:
+
+	*Allowing ssh without a root password:*
+	```bash
+	vi /lib/systemd/system/sshd.socket
+	```
+
+	In this file, comment out the line: `BindToDevice=usb0` using a `#`.
+
+	Then reboot by running: `reboot`.
+
+	(more into [here](https://communities.intel.com/message/254323#254323)).
+
+7. You should now be able to ssh into your Edison!
+
+	*Bonus:* Running `edison_configure` sets up your Edison to broadcast it's hostname, so instead of ssh'ing into your Edison's IP address, try using `<your hostname>.local`, e.g., `edison.local`
