@@ -1,102 +1,119 @@
 Customizing the Yocto Kernel
 ============================
 
-This tutorial is to help build the full yocto kernel for the Intel Edison.  It is largely based on work done by
-[Shawn Hymel](http://shawnhymel.com/585/creating-a-custom-linux-kernel-for-the-edison/)
+This tutorial is to help build the full Yocto Kernel for the Intel Edison.  It is largely based on work done by [Shawn Hymel](http://shawnhymel.com/585/creating-a-custom-linux-kernel-for-the-edison/).
 
-This step-by-step assumes you are on some newer version of Ubuntu, preferably 14.04 forward with access to the
-internet and access to apt repositories.
+This step-by-step assumes you are on some newer version of Ubuntu as the host machine, preferably 14.04 forward with access to the internet and access to apt repositories.
 
-Setup your environment:
-```bash
-sudo apt-get install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev
-sudo apt-get install libqt4-core:i386 ligqt4-gui:i386
-```
+**Note:** The build part of this tutorial can take up to 4 hours.
 
-Setup git (if not already setup):
-```bash
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-```
+##Setting Up Your Environment##
+
+1. Install Dependencies:
+	```bash
+	sudo apt-get install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev dfutils libqt4-core:i386 ligqt4-gui:i386
+	```
+
+2. Setup git (if not already setup):
+	```bash
+	git config --global user.email "you@example.com"
+	git config --global user.name "Your Name"
+	```
+
+##Building the Yocto Kernel:##
 
 1. Get the file at: http://downloadmirror.intel.com/24910/eng/edison-src-ww18-15.tgz
-	a. At a shell execute:  `wget http://downloadmirror.intel.com/24910/eng/edison-src-ww18-15.tgz`
-	b. You can also find the file at: https://downloadcenter.intel.com/SearchResult.aspx?lang=eng&keyword=edison
-	c. The file will likely be called `edison-src-ww18-15.tgz`
+	- At a shell execute:  `wget http://downloadmirror.intel.com/24910/eng/edison-src-ww18-15.tgz` in your home folder.
+	- You can also find the file at: https://downloadcenter.intel.com/SearchResult.aspx?lang=eng&keyword=edison
+	- The file will likely be called `edison-src-ww18-15.tgz`
 
 2. Once the file is downloaded extract the contents to your preferred workspace.
-```bash
-cd ~
-tar xvzf edison-src-ww18-15.tgz
-```
+	```bash
+	cd ~
+	tar xvzf edison-src-ww18-15.tgz
+	```
 
-3. Go into the directory
-```bash
---> cd ~/edison-src
-```
+3. Go into the directory `~/edison-src`:
+	```bash
+	cd ~/edison-src
+	```
 
-Inside ~/edison-src should have a structure of:
-```bash
-you@yourcomputer$ ll
-Makefile -> meta-intel-edison/utils/Makefile.mk
-meta-intel-edison/
-```
+ It should have a structure of:
+	```bash
+	.
+	+-- Makefile -> meta-intel-edison/utils/Makefile.mk
+	+-- meta-intel-edison/
+	```
 
 4. Setup the build tree by pulling source from remote repos
-```bash
-make setup
-```
+	```bash
+	make setup
+	```
 
-Inside ~/edison-src should now have a structure of:
-```bash
-you@yourcomputer$ ll
-bbcache
-Makefile -> meta-intel-edison/utils/Makefile.mk
-meta-intel-edison/
-out/
-pub/
-```
+ Now, `~/edison-src` should now have a structure of:
+	```bash
+	.
+	+-- bbcache/
+	+-- Makefile -> meta-intel-edison/utils/Makefile.mk
+	+-- meta-intel-edison/
+	+-- out/
+	+-- pub/
+	```
 
 5. source the shell environment [note this is for 64-bit linux builds!]
-```bash
-cd ~/edison-src/out/linux64
-source poky/oe-init-build-env
-```
+	```bash
+	
+	```
 
-*Some systems (mostly those behind a firewall) will have problems fetching some packages.  They are on the github repo.  Download the directory and move the files to edison-src/bbcache/downloads.  Make sure to return to the right directory before baking your bits.*
+ *Some systems (mostly those behind a firewall) will have problems fetching some packages.  They are on in this repo at `Edison-Ethernet/packages/`.  Download the directory and move the files to `~/edison-src/bbcache/downloads`.*
 
-An example might be:
-```bash
-cp ~/Downloads/Edison-Ethernet/packages/* ~/edison-src/bbcache/downloads/
-```
-**NOTE**: Remove the README
+ An example of downloading these packages from the repo might be:
+	```bash
+	cp ~/Edison-Ethernet/packages/* ~/edison-src/bbcache/downloads/
+	```
+	**NOTE**: Remove the README (`rm ~/edison-src/README`)
 
-6) bitbake your shiny new edison image.  This could take hours the first time.
-```bash
-bitbake edison-image
-```
+6. bitbake your shiny new edison image.  **This could take hours the first time.** This can be done in two ways:
+	1. Sourcing the shell environment and then running `bitbake`.
+	2. Using the Makefile.
+	```bash
+	bitbake edison-image
+	```
 
-Alternatively, use the makefile by simply typing (in the `edison-src` dir):
-```bash
-make
-```
+ **Option 1:** *(Note that this is for 64-bit Linux host machines!)*
+ ```bash
+ cd ~/edison-src/out/linux64
+ source poky/oe-init-build-env
+ ```
+ This will automatically put you in the `~/edison-src/build` directory. Then run:
+ ```bash
+ bitbake edison-image
+ ```
 
+ **Option 2:** *(make sure you are in the `~/edison-src` directory)*
+ ```bash
+ make
+ ```
 
-7) Configure the kernel with your new feature
-```bash
-bitbake linux-yocto -c menuconfig
-```
+After a number of hours (e.g., 4) come back to configure the kernel.
 
-8) use the menuconfig to add the LAN9512 that you need, or copy the .config file from the github repo.
-If using the menuconfig you can navigate to the below <ESC> <ESC> goes back, <ENTER> goes forward, <SPACE>
-selects.
+----------------------------------------------------------------------
+
+##Configuring the Kernel##
+
+1. Configure the kernel with your new feature:
+	```bash
+	bitbake linux-yocto -c menuconfig
+	```
+
+2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kdb><kbd>esc</kdb> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
 
 Device Drivers --->
 	[*] Network Device Support --->
 		USB Network Adapters --->
 			< >SMSC LAN95XX based USB 2.0 10/100 ethernet devices
 		
-Press <<space>> until you see a <*> for the SMSC LAN95XX. Save the configuration.
+Press <kbd>space</kbd> until you see a <*> for the SMSC LAN95XX. Save the configuration.
 
 BTW, while you're in there you can add I2C support:
 Device Drivers --->
@@ -104,7 +121,7 @@ Device Drivers --->
 		I2C Hardware Bus support --->
 			[ ] PMIC I2C Adapter
 
-Press <<space>> until you see a <*> for the PMIC I2C Adapter. Save the configuration.
+Press <kbd>space</kbd> until you see a <*> for the PMIC I2C Adapter. Save the configuration.
 
 Exit out.
 ```bash
@@ -131,7 +148,7 @@ execute the existing postBuild.sh with an argument that is the full path to the 
 
 11) Your files will be ready in `edison-src/out/linux64/build/toFlash`
 
-12) The edison kernel is in edison-image-edison.hddimg
+12) The edison kernel is in `edison-image-edison.hddimg`
 
 13) If using ubilinux download their setup from: http://www.emutexlabs.com/ubilinux
 --> Pick the ubilinux for Intel Edison or
