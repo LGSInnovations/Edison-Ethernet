@@ -11,7 +11,7 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 
 1. Install Dependencies:
 	```bash
-	sudo apt-get install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev dfutils libqt4-core:i386 ligqt4-gui:i386
+	sudo apt-get install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev dfu-util libqt4-core:i386 ligqt4-gui:i386
 	```
 
 2. Setup git (if not already setup):
@@ -92,65 +92,77 @@ After a number of hours (e.g., 4) come back to configure the kernel.
 
 ##Configuring the Kernel##
 
-1. Configure the kernel with your new feature:
+1. Configure the kernel with your new feature (this will take about 30mins):
 	```bash
+	cd ~/edison-src/build
 	bitbake linux-yocto -c menuconfig
 	```
 
-2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kbd><kbd>esc</kdb> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
+2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kbd> <kbd>esc</kdb> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
 
-Device Drivers --->
-	[*] Network Device Support --->
-		USB Network Adapters --->
-			< >SMSC LAN95XX based USB 2.0 10/100 ethernet devices
+	```
+	Device Drivers --->
+		[*] Network Device Support --->
+			USB Network Adapters --->
+				< >SMSC LAN95XX based USB 2.0 10/100 ethernet devices
+	```
 		
-Press <kbd>space</kbd> until you see a <*> for the SMSC LAN95XX. Save the configuration.
+ 	Press <kbd>space</kbd> until you see a <*> for the SMSC LAN95XX. Save the configuration.
 
-BTW, while you're in there you can add I2C support:
-Device Drivers --->
-	-*- I2C support --->
-		I2C Hardware Bus support --->
-			[ ] PMIC I2C Adapter
+	Also, while you're in there you can add I2C support:
+	```
+	Device Drivers --->
+		-*- I2C support --->
+			I2C Hardware Bus support --->
+				[ ] PMIC I2C Adapter
+	```
 
-Press <kbd>space</kbd> until you see a <*> for the PMIC I2C Adapter. Save the configuration.
+	Press <kbd>space</kbd> until you see a <*> for the PMIC I2C Adapter. Save the configuration.
 
-Exit out.
-```bash
-cp edison-src/out/linux64/build/tmp/work/edison-poky-linux/linux-yocto/3.10.17+gitAUTO*/linux-edison-standard-build/.config \\
+	Exit out.
+	```bash
+	cp edison-src/out/linux64/build/tmp/work/edison-poky-linux/linux-yocto/3.10.17+gitAUTO*/linux-edison-standard-build/.config \\
 	edison-src/meta-intel-edison/meta-intel-edison-bsp/recipes-kernel/linux/files/defconfig
-```
+	```
 	
-9) bake your edison again
-```bash
-cd ~/edison-src/out/linux64
-source poky/oe-init-build-env
-bitbake edison-image
-```
+9. bake your Edison again, either using `make` or `bitbake` as above.
+	```
+	cd ~/edison-src
+	make
+	```
 
-10) use your favorite text editor to edit postBuild.sh to the following:
+	or
 
-`line 9: build_dir=$top_repo_dir/out/linux64/build`
+	```bash
+	cd ~/edison-src/out/linux64
+	source poky/oe-init-build-env
+	bitbake edison-image
+	```
 
-or
+10. Use your favorite text editor to edit postBuild.sh to the following:
 
-execute the existing postBuild.sh with an argument that is the full path to the build dir
+	`line 9: build_dir=$top_repo_dir/out/linux64/build`
 
-`edison-src/meta-intel-edison/utils/flash/postBuild.sh edison-src/out/linux64/build`
+	or
 
-11) Your files will be ready in `edison-src/out/linux64/build/toFlash`
+	execute the existing postBuild.sh with an argument that is the full path to the build dir
 
-12) The edison kernel is in `edison-image-edison.hddimg`
+	`edison-src/meta-intel-edison/utils/flash/postBuild.sh edison-src/out/linux64/build`
 
-13) If using ubilinux download their setup from: http://www.emutexlabs.com/ubilinux
---> Pick the ubilinux for Intel Edison or
---> wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz
+11. Your files will be ready in `edison-src/out/linux64/build/toFlash`
 
-14) Replace the `edison-image-edison.hddimg` from the ubilinux distribution with your new kernel, or you can mount the kernel with
-```bash
-mkdir /tmp/hddimg
-mount /path/to/edison-image-edison.hddimg
-```
-Once mounted, you can change whatever files you need to.  Typically `vmlinuz` and `ldlinux.sys`.
+12. The edison kernel is in `edison-image-edison.hddimg`
+
+13. If using ubilinux download their setup from: http://www.emutexlabs.com/ubilinux
+	- Pick the ubilinux for Intel Edison or
+	- `wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz`
+
+14. Replace the `edison-image-edison.hddimg` from the ubilinux distribution with your new kernel, or you can mount the kernel with
+	```bash
+	mkdir /tmp/hddimg
+	mount /path/to/edison-image-edison.hddimg
+	```
+	Once mounted, you can change whatever files you need to.  Typically `vmlinuz` and `ldlinux.sys`.
 
 -----------------------------------------------------------------------
 
