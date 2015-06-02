@@ -145,6 +145,13 @@ execute the existing postBuild.sh with an argument that is the full path to the 
 --> Pick the ubilinux for Intel Edison or
 --> wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz
 
+14) Replace the `edison-image-edison.hddimg` from the ubilinux distribution with your new kernel, or you can mount the kernel with
+```bash
+mkdir /tmp/hddimg
+mount /path/to/edison-image-edison.hddimg
+```
+Once mounted, you can change whatever files you need to.  Typically `vmlinuz` and `ldlinux.sys`.
+
 -----------------------------------------------------------------------
 
 ##Setting up the Network Interface for Yocto##
