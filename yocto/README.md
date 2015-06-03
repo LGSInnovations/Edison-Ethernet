@@ -98,7 +98,7 @@ After a number of hours (e.g., 4 or 5) come back to configure the kernel.
 	bitbake linux-yocto -c menuconfig
 	```
 
-2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kbd> <kbd>esc</kdb> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
+2. Use the `menuconfig` to add the LAN9512 that you need, or copy the `.config` file from this repo. If using the `menuconfig` you can navigate to the below <kbd>esc</kbd> <kbd>esc</kbd> goes back, <kbd>enter</kbd> goes forward, <kbd>space</kbd> selects.
 
 	```
 	Device Drivers --->
@@ -272,7 +272,7 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 
 1. Login to the edison as `root` with password `edison`.
 
-2. Verify that your Edison sees the `eth0` interface by doing `ifconfig -a`. In `screen`, you can scroll by doing: <kbd>C</kbd>-<kdb>a</kdb> <kbd>esc</kbd> and then using the up/down arrow keys.
+2. Verify that your Edison sees the `eth0` interface by doing `ifconfig -a`. In `screen`, you can scroll by doing: <kbd>C</kbd>-<kbd>a</kdb> <kbd>esc</kbd> and then using the up/down arrow keys.
 
 3. Add the `eth0` interface to the `/etc/network/interfaces` file:
 
