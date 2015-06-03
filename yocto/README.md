@@ -86,7 +86,7 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 		 make
 		 ```
 
-After a number of hours (e.g., 4) come back to configure the kernel.
+After a number of hours (e.g., 4 or 5) come back to configure the kernel.
 
 ----------------------------------------------------------------------
 
@@ -125,7 +125,7 @@ After a number of hours (e.g., 4) come back to configure the kernel.
 	edison-src/meta-intel-edison/meta-intel-edison-bsp/recipes-kernel/linux/files/defconfig
 	```
 	
-9. bake your Edison again, either using `make` or `bitbake` as above.
+3. Bake your Edison again, either using `make` or `bitbake` as above.
 	```
 	cd ~/edison-src
 	make
@@ -139,30 +139,33 @@ After a number of hours (e.g., 4) come back to configure the kernel.
 	bitbake edison-image
 	```
 
-10. Use your favorite text editor to edit postBuild.sh to the following:
+4. Run the `postBuild.sh` script to clean up the `toFlash` directory as follows:
 
-	`line 9: build_dir=$top_repo_dir/out/linux64/build`
-
-	or
-
-	execute the existing postBuild.sh with an argument that is the full path to the build dir
-
-	`edison-src/meta-intel-edison/utils/flash/postBuild.sh edison-src/out/linux64/build`
-
-11. Your files will be ready in `edison-src/out/linux64/build/toFlash`
-
-12. The edison kernel is in `edison-image-edison.hddimg`
-
-13. If using ubilinux download their setup from: http://www.emutexlabs.com/ubilinux
-	- Pick the ubilinux for Intel Edison or
-	- `wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz`
-
-14. Replace the `edison-image-edison.hddimg` from the ubilinux distribution with your new kernel, or you can mount the kernel with
 	```bash
-	mkdir /tmp/hddimg
-	mount /path/to/edison-image-edison.hddimg
+	~/edison-src/meta-intel-edison/utils/flash/postBuild.sh ~/edison-src/out/linux64/build
 	```
-	Once mounted, you can change whatever files you need to.  Typically `vmlinuz` and `ldlinux.sys`.
+
+	Alternatively, you can use your favorite text editor to edit `postBuild.sh` to the following:
+	```bash
+	line 9: build_dir=$top_repo_dir/out/linux64/build
+	```
+
+	And then execute the `postBuild.sh` script without the build directory argument:
+	```bash
+	~/edison-src/meta-intel-edison/utils/flash/postBuild.sh
+	```
+
+5. Your files will be ready in `~/edison-src/out/linux64/build/toFlash`.
+
+6. You may now either flash your Edison with Yocto and follow the Yocto Network Interface setup, or you can use the Yocto kernel in the Ubilinux distro to give yourself a more fleshed out Linux distro with `apt-get`.
+
+7. Flashing your Edison with Yocto:
+	
+	```bash
+	sudo ~/edison-src/out/linux64/build/toFlash/flashall.sh
+	```
+
+	And then plug your Edison in via the OTG port of the SparkFun base-board.
 
 -----------------------------------------------------------------------
 
@@ -207,3 +210,85 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 7. You should now be able to ssh into your Edison!
 
 	*Bonus:* Running `edison_configure` sets up your Edison to broadcast it's hostname, so instead of ssh'ing into your Edison's IP address, try using `<your hostname>.local`, e.g., `edison.local`
+
+
+----------------------------------------------------------------------
+
+##Using the Customized Yocto Kernel in Ubilinux##
+
+After having bitbaked the Yocto Kernel with SMSC LAN95XX driver support for the Ethernet block, you can take the Yocto kernel and its modules and splice them into the Ubilinux distro.
+
+This allows you to use the LAN9512 Ethernet block with a Debian-based Linux distro, with better support for installing packages.
+
+1. Download the Ubilinux distro from [here](http://www.emutexlabs.com/ubilinux). Choose the Intel Edison.
+	- Alternatively, run `wget http://www.emutexlabs.com/files/ubilinux/ubilinux-edison-150309.tar.gz` on your Linux host machine.
+
+2. Extract the archive with:
+	
+	```bash
+	tar xvf ~/ubilinux-edison-150309.tar.gz
+	cd ubilinux-150309/toFlash
+	```
+
+3. The Edison kernel is in `edison-image-edison.hddimg`, the filesystem is in `edison-image-edison.ext4`. Move the kernel (`*.hddimg`) out of the directory:
+
+	```bash
+	mv edison-image-edison.hddimg ../edison-image-edison.hddimg.ubi
+	```
+
+4. Copy the Yocto Edison kernel to here:
+
+	```bash
+	cp ~/edison-src/out/current/build/toFlash/edison-image-edison.hddimg .
+	```
+
+5. Next, you will need to mount the Ubilinux filesystem and replace its kernel modules with the Yocto kernel modules:
+
+	```bash
+	sudo mkdir /mnt/ubi
+	sudo mount edison-image-edison.ext4 /mnt/ubi
+	sudo rm -rf /mnt/ubi/lib/modules/3.10.17-yocto-standard
+	cp -r ~/edison-src/out/current/build/tmp/work/edison-poky-linux/edison-image/1.0-r0/rootfs/lib/modules/ /mnt/ubi/lib/modules/
+	sudo umount /mnt/ubi
+	```
+6. Now that you've copied the Yocto kernel and its modules, you can flash your Edison as follows:
+
+	```bash
+	cd ~/ubilinux-150309/toFlash
+	sudo ./flashall.sh
+	```
+
+	And then plug your Edison in via the OTG port of the SparkFun base-board.
+
+7. When booting on the Edison, make sure that all the kernel modules got loaded (there are about 5 of them), otherwise `lsmod` will return no modules, and `lsusb` will return `-99`.
+
+-----------------------------------------------------------------------
+
+##Setting up the Network Interface for Ubilinux with Yocto Kernel##
+
+This will walk you through bringing the ethernet block up on the Edison.
+
+Follow these steps after `screen`'ing into your Edison from your host Linux machine, as described [here](https://software.intel.com/en-us/setting-up-serial-terminal-on-system-with-linux) (i.e., `sudo screen /dev/ttyUSB0 115200`).
+
+1. Login to the edison as `root` with password `edison`.
+
+2. Verify that your Edison sees the `eth0` interface by doing `ifconfig -a`. In `screen`, you can scroll by doing: <kbd>C</kbd>-<kdb>a</kdb> <kbd>esc</kbd> and then using the up/down arrow keys.
+
+3. Add the `eth0` interface to the `/etc/network/interfaces` file:
+
+	```bash
+	vi /etc/network/interfaces
+	```
+
+	And add this to the file:
+
+	```bash
+	auto eth0
+	iface eth0 inet dhcp
+	```
+
+	To enable DHCP on `eth0`.
+
+4. Bring up the Ethernet block with: `ifup eth0`.
+
+5. Run `ifconfig` again to get the IP address for `eth0`. Use that IP address to SSH into your edison, without having to use `screen`.
