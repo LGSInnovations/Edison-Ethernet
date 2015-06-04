@@ -211,6 +211,7 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 
 	*Bonus:* Running `edison_configure` sets up your Edison to broadcast it's hostname, so instead of ssh'ing into your Edison's IP address, try using `<your hostname>.local`, e.g., `edison.local`
 
+	**Known Issue:** For some reason, the Edison will not switch into USB Host mode except for every other reboot. Try doing a cold restart by unplugging and plugging power back in.
 
 ----------------------------------------------------------------------
 
@@ -292,3 +293,9 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 4. Bring up the Ethernet block with: `ifup eth0`.
 
 5. Run `ifconfig` again to get the IP address for `eth0`. Use that IP address to SSH into your edison, without having to use `screen`.
+
+**Known Issue:** For some reason, the Edison will not switch into USB Host mode after a warm reboot (i.e., after running `reboot`). You must start cold by unplugging the Edison and turning it back on again.
+
+--------------------------------------------------------------
+
+##MACChanger - Changing Your MAC Address##
