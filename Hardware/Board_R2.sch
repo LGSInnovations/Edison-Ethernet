@@ -16175,6 +16175,8 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <text x="104.14" y="15.24" size="3.81" layer="91">1</text>
 <text x="327.66" y="7.62" size="1.778" layer="91">Removed Solder Jumper and cleaned schematic</text>
 <text x="327.406" y="11.176" size="2.54" layer="91">---------------------------------------REVISION NOTES</text>
+<text x="302.26" y="162.56" size="1.778" layer="91">Add 15pF capacitors in 
+EMI Constrained environment</text>
 </plain>
 <instances>
 <instance part="U1" gate="G$1" x="66.04" y="134.62"/>
@@ -17755,4 +17757,10 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
