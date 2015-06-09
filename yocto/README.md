@@ -11,7 +11,7 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 
 1. Install Dependencies:
 	```bash
-	sudo apt-get install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev dfu-util libqt4-core:i386 ligqt4-gui:i386
+	sudo apt-get install build-essential git diffstat gawk chrpath texinfo libtool gcc-multilib libsdl1.2-dev dfu-util libqt4-core:i386 libqt4-gui:i386
 	```
 
 2. Setup git (if not already setup):
@@ -66,7 +66,7 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 	```bash
 	cp ~/Edison-Ethernet/packages/* ~/edison-src/bbcache/downloads/
 	```
-	**NOTE**: Remove the README (`rm ~/edison-src/README`)
+	**NOTE**: Remove the README (`rm ~/edison-src/bbcache/downloads/README`)
 
 6. bitbake your shiny new edison image.  **This could take hours the first time.** This can be done in two ways:
 	1. Sourcing the shell environment and then running `bitbake`.
@@ -83,8 +83,10 @@ This step-by-step assumes you are on some newer version of Ubuntu as the host ma
 
 		 **Option 2:** 
 		 ```bash
-		 make
+		 make image
 		 ```
+
+		 **NOTE**: If your bitbake fails, (possibly with `swig-3.0.5` not being found) just run `make image` again, and it will start from there.
 
 After a number of hours (e.g., 4 or 5) come back to configure the kernel.
 
@@ -92,9 +94,9 @@ After a number of hours (e.g., 4 or 5) come back to configure the kernel.
 
 ##Configuring the Kernel##
 
-1. Configure the kernel with your new feature (this will take about 30mins):
+1. Configure the kernel with your new feature (this may take some time):
 	```bash
-	cd ~/edison-src/build
+	source ~/edison-src/out/poky/oe-init-build-env
 	bitbake linux-yocto -c menuconfig
 	```
 
@@ -211,7 +213,7 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 
 	*Bonus:* Running `edison_configure` sets up your Edison to broadcast it's hostname, so instead of ssh'ing into your Edison's IP address, try using `<your hostname>.local`, e.g., `edison.local`
 
-	**Known Issue:** For some reason, the Edison will not switch into USB Host mode except for every other reboot. Try doing a cold restart by unplugging and plugging power back in.
+	**Known Issue:** For some reason, the Edison will not switch into USB Host mode except for every other reboot. Try doing a cold restart by unplugging and plugging power back in. (For more info, see [here](https://communities.intel.com/thread/57209?start=0&tstart=0))
 
 ----------------------------------------------------------------------
 
@@ -248,7 +250,7 @@ This allows you to use the LAN9512 Ethernet block with a Debian-based Linux dist
 	```bash
 	sudo mkdir /mnt/ubi
 	sudo mount edison-image-edison.ext4 /mnt/ubi
-	sudo rm -rf /mnt/ubi/lib/modules/3.10.17-yocto-standard
+	sudo rm -rf /mnt/ubi/lib/modules/3.10.17-yocto-standard-r2
 	cp -r ~/edison-src/out/current/build/tmp/work/edison-poky-linux/edison-image/1.0-r0/rootfs/lib/modules/ /mnt/ubi/lib/modules/
 	sudo umount /mnt/ubi
 	```
@@ -294,8 +296,9 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 
 5. Run `ifconfig` again to get the IP address for `eth0`. Use that IP address to SSH into your edison, without having to use `screen`.
 
-**Known Issue:** For some reason, the Edison will not switch into USB Host mode after a warm reboot (i.e., after running `reboot`). You must start cold by unplugging the Edison and turning it back on again.
+**Known Issue:** For some reason, the Edison will not switch into USB Host mode after a warm reboot (i.e., after running `reboot`). You must start cold by unplugging the Edison and turning it back on again. (For more info, see [here](https://communities.intel.com/thread/57209?start=0&tstart=0))
 
 --------------------------------------------------------------
 
 ##MACChanger - Changing Your MAC Address##
+
