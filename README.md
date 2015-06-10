@@ -22,6 +22,4 @@ Source code / files can be cloned as follows:
 git clone --recursive https://github.com/LGSInnovations/Edison-Ethernet.git # The '--recursive' flag will also clone the submodules 
 ```
 
-
-
 #### Packaging Your Changes ####
