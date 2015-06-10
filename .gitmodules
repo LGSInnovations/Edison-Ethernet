@@ -1,0 +1,3 @@
+[submodule "edison-debian-image"]
+	path = edison-debian-image
+	url = https://github.com/LGSInnovations/edison-debian-image.git
