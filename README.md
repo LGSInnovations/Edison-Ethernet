@@ -24,3 +24,4 @@ git clone --recursive https://github.com/LGSInnovations/Edison-Ethernet.git # Th
 
 
 
+#### Packaging Your Changes ####

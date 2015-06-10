@@ -8,6 +8,18 @@ if [[ $(/usr/bin/id -u) -ne 0 ]]; then
     exit 1
 fi
 
+# Make sure that the appropriate images have been built
+# added by pcl
+if [[ ! -f ./edison-image-edison.ext4 || ! -f ./edison-image-edison.ext4 ]];
+then
+   echo
+   echo "ERR: Could not find 'edison-image-edison.ext4' or 'edison-image-edison.hddimg'."
+   echo
+   echo "If packaging from source, make sure to run Edison-Ethernet/src/package.sh before trying to flash your Edison."
+   echo
+   exit 1
+fi
+
 BACKUP_IFS=$IFS
 IFS=$(echo -en "\n\b")
 
