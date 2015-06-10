@@ -9,7 +9,7 @@
 #	6. umount the image
 #	7. 
 
-
+SCRIPT_DIR=$(dirname $0)
 # find . -type f -name '.gitignore' -delete
 
 # Make sure only root can run our script
@@ -17,3 +17,4 @@ if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
 fi
+
