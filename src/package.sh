@@ -36,16 +36,21 @@ function create_package() {
    mkdir -p "$MOUNT_DIR"
 
    echo
+   echo "Cleaning up old image..."
+
+   rm "$EDISON_EXT4" >> "$LOG_FILE" 2>&1
+
+   echo
    echo "Creating $DISTRO Image..."
 
    # Create a 1610MB image, with 512 Block size
-   dd if=/dev/zero of="$EDISON_EXT4" bs=512 count="$DD_COUNT" >> "$LOG_FILE"
+   dd if=/dev/zero of="$EDISON_EXT4" bs=512 count="$DD_COUNT" >> "$LOG_FILE" 2>&1
 
    # Format as ext4 with
    mke2fs -F -t ext4 "$EDISON_EXT4" >> "$LOG_FILE"
 
    # Mount the image
-   mount -t ext4 -o loop "$EDISON_EXT4" "$MOUNT_DIR" >> "$LOG_FILE"
+   mount -t ext4 -o loop "$EDISON_EXT4" "$MOUNT_DIR" >> "$LOG_FILE" 2>&1
 
    echo "Copying rootfs files from repo..."
 
@@ -53,13 +58,13 @@ function create_package() {
    cp -rf $ROOTFS/* $MOUNT_DIR/ >> "$LOG_FILE" 2>&1
 
    # Remove .gitignores
-   find "$MOUNT_DIR" -type f -name '.gitignore' -delete >> "$LOG_FILE"
+   find "$MOUNT_DIR" -type f -name '.gitignore' -delete >> "$LOG_FILE" 2>&1
 
    # Make sure perms are good (these don't matter too much -- they will be re-generated on first-install)
-   chmod 0600 $MOUNT_DIR/etc/ssh/ssh_host_dsa_key $MOUNT_DIR/etc/ssh/ssh_host_ecdsa_key $MOUNT_DIR/etc/ssh/ssh_host_rsa_key
+   chmod 0600 $MOUNT_DIR/etc/ssh/ssh_host_dsa_key $MOUNT_DIR/etc/ssh/ssh_host_ecdsa_key $MOUNT_DIR/etc/ssh/ssh_host_rsa_key >> "$LOG_FILE" 2>&1
 
    # unmount
-   umount "$MOUNT_DIR" >> "$LOG_FILE"
+   umount "$MOUNT_DIR" >> "$LOG_FILE" 2>&1
 
    echo "Done."
 }
