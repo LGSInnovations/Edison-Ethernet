@@ -3,7 +3,7 @@
 
 SCRIPT_DIR=$(dirname $0)
 DEBIANFS="$SCRIPT_DIR/edison-debian-image/edison-image-edison-ext4/"
-YOCTOFS="$SCRIPT_DIR/edison-yocto-image/edison-image-edison/ext4/"
+YOCTOFS="$SCRIPT_DIR/edison-yocto-image/edison-image-edison-ext4/"
 
 DEBIAN=1
 YOCTO=0
