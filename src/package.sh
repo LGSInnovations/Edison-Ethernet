@@ -1,13 +1,5 @@
 #!/bin/bash
-# Packages the Edison Ethernet Ubilinux rootfs for flashing by doing the following:
-#
-#  1. Make sure that you are using sudo!
-#  2. clone the edison-${dist}-image git repo
-#  3. create an `edison-image-edison.ext4` image
-#  4. mount the `edison-image-edison.ext4` image
-#  5. copy the rootfs from the local repo
-#  6. umount the image
-#  7. 
+# Packages the Edison Ethernet Ubilinux rootfs for flashing
 
 SCRIPT_DIR=$(dirname $0)
 DEBIANFS="$SCRIPT_DIR/edison-debian-image/edison-image-edison-ext4/"
@@ -16,9 +8,13 @@ YOCTOFS="$SCRIPT_DIR/edison-yocto-image/edison-image-edison/ext4/"
 DEBIAN=1
 YOCTO=0
 
+DEBIAN_DD_COUNT=3145728
+YOCTO_DD_COUNT=1048576
+
 MOUNT_DIR="$SCRIPT_DIR/tmp/mnt"
 EDISON_EXT4="$SCRIPT_DIR/toFlash/edison-image-edison.ext4"
-# find . -type f -name '.gitignore' -delete
+
+LOG_FILE="$SCRIPT_DIR/package.log"
 
 function usage() {
    echo
@@ -26,31 +22,54 @@ function usage() {
    echo
 }
 
-function debian_package() {
+function create_package() {
+   DISTRO=$1
+   DD_COUNT=$2
+   ROOTFS=$3
+
+   echo "********** package.sh **********" > "$LOG_FILE"
+   echo "Distro: $DISTRO" >> "$LOG_FILE"
+   echo "" >> "$LOG_FILE"
+   echo "" >> "$LOG_FILE"
+
+   # Make a tmp directory to mount to
    mkdir -p "$MOUNT_DIR"
 
+   echo
+   echo "Creating $DISTRO Image..."
+
    # Create a 1610MB image, with 512 Block size
-   dd if=/dev/zero of="$EDISON_EXT4" bs=512 count=3145728
+   dd if=/dev/zero of="$EDISON_EXT4" bs=512 count="$DD_COUNT" >> "$LOG_FILE"
 
    # Format as ext4 with
-   mke2fs -F -t ext4 -i 512 "$EDISON_EXT4"
+   mke2fs -F -t ext4 "$EDISON_EXT4" >> "$LOG_FILE"
 
    # Mount the image
-   mount -t ext4 -o loop "$EDISON_EXT4" "$MOUNT_DIR"
+   mount -t ext4 -o loop "$EDISON_EXT4" "$MOUNT_DIR" >> "$LOG_FILE"
+
+   echo "Copying rootfs files from repo..."
 
    # Copy the files from the repo to the mounted image
-   cp -rf "${DEBIANFS}/*" "${MOUNT_DIR}/"
+   cp -rf $ROOTFS/* $MOUNT_DIR/ >> "$LOG_FILE" 2>&1
 
    # Remove .gitignores
-   find "$MOUNT_DIR" -type f -name '.gitignore' -delete
+   find "$MOUNT_DIR" -type f -name '.gitignore' -delete >> "$LOG_FILE"
+
+   # Make sure perms are good
+   chmod 0600 $MOUNT_DIR/etc/ssh/ssh_host_dsa_key $MOUNT_DIR/etc/ssh/ssh_host_ecdsa_key $MOUNT_DIR/etc/ssh/ssh_host_rsa_key
 
    # unmount
-   umount "$MOUNT_DIR"
+   umount "$MOUNT_DIR" >> "$LOG_FILE"
 
+   echo "Done."
+}
+
+function debian_package() {
+   create_package "Ubilinux/Debian" $DEBIAN_DD_COUNT $DEBIANFS
 }
 
 function yocto_package() {
-   mkdir -p "$SCRIPT_DIR/tmp/mnt"
+   create_package "Yocto" $YOCTO_DD_COUNT $YOCTOFS
 }
 
 if [[ "x$1" == "x" || "x$1" == "x-h" || "x$1" == "x--help" ]];
@@ -64,6 +83,19 @@ if [ "$(id -u)" != "0" ]; then
    echo "ERR: his script must be run as root" 1>&2
    exit 1
 fi
+
+# Set the DEBIAN or YOCTO flags
+shopt -s nocasematch
+if [[ "$1" == "debian" ]];
+then
+   DEBIAN=1
+   YOCTO=0
+elif [[ "$1" == "yocto" ]];
+then
+   DEBIAN=0
+   YOCTO=1
+fi
+shopt -u nocasematch
 
 if [[ $DEBIAN -eq 1 ]];
 then
