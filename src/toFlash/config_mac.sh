@@ -18,7 +18,7 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 mkdir -p /tmp/ubieth-mnt
-mount toFlash/edison-image-edison.ext4 /tmp/ubieth-mnt > /dev/null 2>&1
+mount edison-image-edison.ext4 /tmp/ubieth-mnt > /dev/null 2>&1
 
 while [[ ! "$mac" =~ ^([0-9A-Fa-f]{2}[:-]){5}([0-9a-fA-F]{2})$ ]];
 do
