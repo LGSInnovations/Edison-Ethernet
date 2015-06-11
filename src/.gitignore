@@ -1,2 +1,4 @@
 tmp/*
 package.log
+toFlash/*.ext4*
+toFlash/*.log
