@@ -11,10 +11,12 @@ YOCTO=0
 DEBIAN_DD_COUNT=3145728
 YOCTO_DD_COUNT=1048576
 
-MOUNT_DIR="$SCRIPT_DIR/tmp/mnt"
+MOUNT_DIR="/tmp/mnt"
 EDISON_EXT4="$SCRIPT_DIR/toFlash/edison-image-edison.ext4"
 
 LOG_FILE="$SCRIPT_DIR/package.log"
+
+USER=$(who am i | awk '{print $1}')
 
 function usage() {
    echo
@@ -65,6 +67,8 @@ function create_package() {
 
    # unmount
    umount "$MOUNT_DIR" >> "$LOG_FILE" 2>&1
+
+   chown "$USER" "$EDISON_EXT4" "$LOG_FILE"
 
    echo "Done."
 }
