@@ -1,0 +1,6 @@
+[submodule "src/edison-debian-image"]
+	path = src/edison-debian-image
+	url = http://github.com/LGSInnovations/edison-debian-image.git
+[submodule "src/edison-yocto-image"]
+	path = src/edison-yocto-image
+	url = https://github.com/LGSInnovations/edison-yocto-image.git
