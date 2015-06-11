@@ -55,7 +55,7 @@ function create_package() {
    # Remove .gitignores
    find "$MOUNT_DIR" -type f -name '.gitignore' -delete >> "$LOG_FILE"
 
-   # Make sure perms are good
+   # Make sure perms are good (these don't matter too much -- they will be re-generated on first-install)
    chmod 0600 $MOUNT_DIR/etc/ssh/ssh_host_dsa_key $MOUNT_DIR/etc/ssh/ssh_host_ecdsa_key $MOUNT_DIR/etc/ssh/ssh_host_rsa_key
 
    # unmount

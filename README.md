@@ -23,3 +23,5 @@ git clone --recursive https://github.com/LGSInnovations/Edison-Ethernet.git # Th
 ```
 
 #### Packaging Your Changes ####
+
+After you have changed things to your liking, use the `package.sh` script in `Edison-Ethernet/src/` to package your `edison-image-edison.ext4` rootfs so you can run `sudo ./flashall.sh`
