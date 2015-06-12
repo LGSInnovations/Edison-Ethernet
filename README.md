@@ -5,6 +5,18 @@ This project gives the Intel Edison ethernet capibility in applications where wi
 
 Currently, there are two common Linux distros used on the Intel Edison: Yocto Linux and Ubilinux. The Edison Ethernet project has support for both and is created from forking those distros.
 
+## Distro Support ##
+
+We currently support a Debian based distro, based on Ubilinux, and the Yocto distro. Both are built with the Yocto 3.10 kernel, bitbaked with driver support for the LAN9512/SMSC95xx USB-to-Ethernet chip.
+
+### Ubilinux/Debian ###
+
+Popular for its familiar package manager (`apt-get`), this build has support for the Edison Ethernet block as well as support for MAC spoofing using a tool called [macchanger](https://github.com/alobbs/macchanger).
+
+### Yocto ###
+
+This Linux distro is great for lightweight projects as it has a rootfs size of about 500MB. Although it has support for the Edison Ethernet block, it does not currently have easy support for MAC spoofing through macchanger. 
+
 ## Contributing to this Project ##
 
 We use Git Submodules in our repo, if you've never used that tool before, make sure to read about it [here](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
