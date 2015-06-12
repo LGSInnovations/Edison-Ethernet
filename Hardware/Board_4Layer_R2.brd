@@ -4103,11 +4103,10 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <contactref element="C15" pad="1"/>
 <contactref element="U2" pad="38"/>
 <contactref element="C17" pad="1"/>
-<wire x1="55.507" y1="15.8942" x2="55.507" y2="17.0006" width="0.254" layer="1"/>
+<wire x1="55.499" y1="15.9258" x2="55.507" y2="17.0006" width="0.254" layer="1"/>
 <wire x1="55.507" y1="17.0006" x2="55.5244" y2="17.018" width="0.254" layer="1"/>
-<wire x1="55.507" y1="15.8942" x2="55.507" y2="15.52995" width="0.254" layer="1"/>
-<wire x1="55.507" y1="15.52995" x2="55.5244" y2="15.0876" width="0.254" layer="1"/>
-<wire x1="55.5244" y1="15.0876" x2="55.1434" y2="14.7066" width="0.254" layer="1"/>
+<wire x1="55.499" y1="15.9258" x2="55.499" y2="15.0622" width="0.254" layer="1"/>
+<wire x1="55.499" y1="15.0622" x2="55.1434" y2="14.7066" width="0.254" layer="1"/>
 <wire x1="55.1434" y1="14.7066" x2="55.1434" y2="13.4226" width="0.254" layer="1"/>
 <wire x1="53.515259375" y1="26.7462" x2="53.5178" y2="27.6575" width="0.254" layer="1"/>
 <wire x1="53.5178" y1="27.6575" x2="53.4797" y2="27.8099" width="0.254" layer="1"/>
@@ -4122,7 +4121,7 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <wire x1="54.356" y1="16.3322" x2="54.8005" y2="15.9512" width="0.254" layer="16"/>
 <via x="54.8005" y="15.9512" extent="1-16" drill="0.3302"/>
 <wire x1="54.8005" y1="15.9512" x2="55.4355" y2="15.9512" width="0.254" layer="1"/>
-<wire x1="55.4355" y1="15.9512" x2="55.507" y2="15.8942" width="0.254" layer="1"/>
+<wire x1="55.4355" y1="15.9512" x2="55.499" y2="15.9258" width="0.254" layer="1"/>
 <wire x1="53.93055" y1="13.1222" x2="55.1097" y2="13.1222" width="0.254" layer="1"/>
 <wire x1="55.1097" y1="13.1222" x2="55.1434" y2="13.4226" width="0.127" layer="1"/>
 </signal>
@@ -4199,9 +4198,9 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <contactref element="U2" pad="41"/>
 <wire x1="57.023" y1="17.018" x2="57.023" y2="16.4862" width="0.254" layer="1"/>
 <wire x1="57.023" y1="16.4862" x2="58.0136" y2="15.4956" width="0.254" layer="1"/>
-<wire x1="58.0136" y1="15.4956" x2="58.039" y2="12.23735" width="0.254" layer="1"/>
-<wire x1="58.039" y1="12.23735" x2="57.6072" y2="11.80555" width="0.254" layer="1"/>
-<wire x1="57.6072" y1="11.80555" x2="57.6072" y2="11.5316" width="0.254" layer="1"/>
+<wire x1="58.0136" y1="15.4956" x2="58.0136" y2="12.2174" width="0.254" layer="1"/>
+<wire x1="58.0136" y1="12.2174" x2="57.6072" y2="11.811" width="0.254" layer="1"/>
+<wire x1="57.6072" y1="11.811" x2="57.6072" y2="11.5316" width="0.254" layer="1"/>
 <wire x1="57.6072" y1="11.5316" x2="57.63895" y2="11.20685" width="0.254" layer="1"/>
 </signal>
 <signal name="RX_P">
