@@ -251,7 +251,7 @@ This allows you to use the LAN9512 Ethernet block with a Debian-based Linux dist
 	sudo mkdir /mnt/ubi
 	sudo mount edison-image-edison.ext4 /mnt/ubi
 	sudo rm -rf /mnt/ubi/lib/modules/3.10.17-yocto-standard-r2
-	cp -r ~/edison-src/out/current/build/tmp/work/edison-poky-linux/edison-image/1.0-r0/rootfs/lib/modules/ /mnt/ubi/lib/modules/
+	sudo cp -r ~/edison-src/out/current/build/tmp/work/edison-poky-linux/edison-image/1.0-r0/rootfs/lib/modules/ /mnt/ubi/lib/modules/
 	sudo umount /mnt/ubi
 	```
 6. Now that you've copied the Yocto kernel and its modules, you can flash your Edison as follows:
