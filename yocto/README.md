@@ -96,7 +96,7 @@ After a number of hours (e.g., 4 or 5) come back to configure the kernel.
 
 1. Configure the kernel with your new feature (this may take some time):
 	```bash
-	source ~/edison-src/out/poky/oe-init-build-env
+	source ~/edison-src/out/linux64/poky/oe-init-build-env
 	bitbake linux-yocto -c menuconfig
 	```
 
