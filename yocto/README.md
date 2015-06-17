@@ -275,7 +275,7 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 
 1. Login to the edison as `root` with password `edison`.
 
-2. Verify that your Edison sees the `eth0` interface by doing `ifconfig -a`. In `screen`, you can scroll by doing: <kbd>C</kbd>-<kbd>a</kbd> <kbd>esc</kbd> and then using the up/down arrow keys.
+2. Verify that your Edison sees the `eth0` interface by doing `ifconfig -a`. In `screen`, you can scroll by doing: <kbd>Ctrl</kbd>-<kbd>a</kbd> <kbd>esc</kbd> and then using the up/down arrow keys.
 
 3. Add the `eth0` interface to the `/etc/network/interfaces` file:
 
