@@ -18708,6 +18708,7 @@ Rebel - DIO-09553&lt;br&gt;
 <part name="R19" library="SparkFun-Resistors" deviceset="1KOHM-1/10W-1%(0603)" device="" value="1K"/>
 <part name="D2" library="SparkFun-LED" deviceset="LED-BLUE" device="0603" value="BLUE"/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
+<part name="R20" library="resistor" deviceset="R-US_" device="R0402" value="25"/>
 </parts>
 <sheets>
 <sheet>
@@ -18975,7 +18976,7 @@ USB_UP_N)</text>
 <instance part="C31" gate="G$1" x="337.82" y="53.34"/>
 <instance part="D1" gate="G$1" x="401.32" y="50.8" rot="R90"/>
 <instance part="C32" gate="G$1" x="327.66" y="55.88"/>
-<instance part="GND24" gate="1" x="327.66" y="40.64"/>
+<instance part="GND24" gate="1" x="320.04" y="40.64"/>
 <instance part="B1" gate="G$1" x="408.94" y="78.74" smashed="yes" rot="R180">
 <attribute name="VALUE" x="414.02" y="81.28" size="1.778" layer="96"/>
 <attribute name="NAME" x="401.32" y="81.28" size="1.778" layer="95"/>
@@ -18992,16 +18993,20 @@ USB_UP_N)</text>
 <attribute name="NAME" x="251.46" y="63.5" size="1.778" layer="95"/>
 <attribute name="VALUE" x="256.54" y="63.5" size="1.778" layer="96"/>
 </instance>
-<instance part="GND25" gate="1" x="312.42" y="40.64"/>
+<instance part="GND25" gate="1" x="304.8" y="40.64"/>
 <instance part="GND26" gate="1" x="297.18" y="22.86"/>
 <instance part="GND27" gate="1" x="266.7" y="22.86"/>
 <instance part="GND28" gate="1" x="246.38" y="22.86"/>
 <instance part="GND29" gate="1" x="218.44" y="22.86"/>
 <instance part="C33" gate="G$1" x="218.44" y="50.8"/>
-<instance part="C34" gate="G$1" x="312.42" y="53.34"/>
+<instance part="C34" gate="G$1" x="304.8" y="53.34"/>
 <instance part="R19" gate="G$1" x="203.2" y="40.64" rot="R90"/>
 <instance part="D2" gate="G$1" x="203.2" y="55.88"/>
 <instance part="GND30" gate="1" x="203.2" y="22.86"/>
+<instance part="R20" gate="G$1" x="320.04" y="53.34" smashed="yes" rot="R90">
+<attribute name="NAME" x="323.6214" y="52.07" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="318.262" y="52.07" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -19412,23 +19417,6 @@ USB_UP_N)</text>
 <wire x1="132.08" y1="30.48" x2="132.08" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="AG9805MT" gate="G$1" pin="-VDC"/>
-<wire x1="347.98" y1="48.26" x2="360.68" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="C30" gate="G$1" pin="2"/>
-<wire x1="347.98" y1="50.8" x2="347.98" y2="48.26" width="0.1524" layer="91"/>
-<pinref part="C31" gate="G$1" pin="2"/>
-<wire x1="337.82" y1="50.8" x2="337.82" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="337.82" y1="48.26" x2="347.98" y2="48.26" width="0.1524" layer="91"/>
-<junction x="347.98" y="48.26"/>
-<pinref part="C32" gate="G$1" pin="2"/>
-<wire x1="337.82" y1="48.26" x2="327.66" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="327.66" y1="48.26" x2="327.66" y2="50.8" width="0.1524" layer="91"/>
-<junction x="337.82" y="48.26"/>
-<wire x1="327.66" y1="48.26" x2="327.66" y2="43.18" width="0.1524" layer="91"/>
-<junction x="327.66" y="48.26"/>
-<pinref part="GND24" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="U7" gate="G$1" pin="AGND"/>
 <pinref part="GND26" gate="1" pin="GND"/>
 <wire x1="294.64" y1="50.8" x2="297.18" y2="50.8" width="0.1524" layer="91"/>
@@ -19455,7 +19443,7 @@ USB_UP_N)</text>
 </segment>
 <segment>
 <pinref part="GND25" gate="1" pin="GND"/>
-<wire x1="312.42" y1="50.8" x2="312.42" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="50.8" x2="304.8" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="C34" gate="G$1" pin="2"/>
 </segment>
 <segment>
@@ -19467,6 +19455,26 @@ USB_UP_N)</text>
 <pinref part="R19" gate="G$1" pin="1"/>
 <pinref part="GND30" gate="1" pin="GND"/>
 <wire x1="203.2" y1="35.56" x2="203.2" y2="25.4" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="AG9805MT" gate="G$1" pin="-VDC"/>
+<wire x1="347.98" y1="48.26" x2="360.68" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="C30" gate="G$1" pin="2"/>
+<wire x1="347.98" y1="50.8" x2="347.98" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="C31" gate="G$1" pin="2"/>
+<wire x1="337.82" y1="50.8" x2="337.82" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="337.82" y1="48.26" x2="347.98" y2="48.26" width="0.1524" layer="91"/>
+<junction x="347.98" y="48.26"/>
+<pinref part="C32" gate="G$1" pin="2"/>
+<wire x1="337.82" y1="48.26" x2="327.66" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="48.26" x2="327.66" y2="50.8" width="0.1524" layer="91"/>
+<junction x="337.82" y="48.26"/>
+<junction x="327.66" y="48.26"/>
+<pinref part="R20" gate="G$1" pin="1"/>
+<wire x1="320.04" y1="48.26" x2="327.66" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="GND24" gate="1" pin="GND"/>
+<wire x1="320.04" y1="43.18" x2="320.04" y2="48.26" width="0.1524" layer="91"/>
+<junction x="320.04" y="48.26"/>
 </segment>
 </net>
 <net name="VDD18USBPLL" class="0">
@@ -19663,12 +19671,13 @@ USB_UP_N)</text>
 <wire x1="360.68" y1="53.34" x2="358.14" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="358.14" y1="53.34" x2="358.14" y2="58.42" width="0.1524" layer="91"/>
 <junction x="358.14" y="58.42"/>
-<wire x1="312.42" y1="58.42" x2="312.42" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="60.96" x2="320.04" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="58.42" x2="304.8" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="304.8" y1="60.96" x2="312.42" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="U7" gate="G$1" pin="PVIN"/>
+<wire x1="312.42" y1="60.96" x2="320.04" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="60.96" x2="327.66" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="60.96" x2="297.18" y2="60.96" width="0.1524" layer="91"/>
-<junction x="312.42" y="60.96"/>
+<wire x1="304.8" y1="60.96" x2="297.18" y2="60.96" width="0.1524" layer="91"/>
+<junction x="304.8" y="60.96"/>
 <pinref part="U7" gate="G$1" pin="AVIN"/>
 <wire x1="297.18" y1="60.96" x2="294.64" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="294.64" y1="58.42" x2="297.18" y2="58.42" width="0.1524" layer="91"/>
@@ -19678,10 +19687,13 @@ USB_UP_N)</text>
 <wire x1="294.64" y1="55.88" x2="297.18" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="297.18" y1="55.88" x2="297.18" y2="58.42" width="0.1524" layer="91"/>
 <junction x="297.18" y="58.42"/>
-<wire x1="320.04" y1="60.96" x2="320.04" y2="68.58" width="0.1524" layer="91"/>
-<junction x="320.04" y="60.96"/>
-<label x="322.58" y="66.04" size="1.778" layer="95"/>
+<wire x1="312.42" y1="60.96" x2="312.42" y2="68.58" width="0.1524" layer="91"/>
+<junction x="312.42" y="60.96"/>
+<label x="314.96" y="66.04" size="1.778" layer="95"/>
 <pinref part="C34" gate="G$1" pin="1"/>
+<pinref part="R20" gate="G$1" pin="2"/>
+<wire x1="320.04" y1="58.42" x2="320.04" y2="60.96" width="0.1524" layer="91"/>
+<junction x="320.04" y="60.96"/>
 </segment>
 </net>
 <net name="N$6" class="0">
