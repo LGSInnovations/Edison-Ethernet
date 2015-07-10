@@ -32,11 +32,11 @@ To start using the Edison Ethernet block, there are four options, increasing in 
 
 #### Option 3 - Leverage This Project ####
 
-See **Contributing to this Project** below.
+See *Contributing to this Project* below.
 
 #### Option 4 - Build from Source ####
 
-Follow [these](tree/master/yocto) instructions. **Be aware that this will take at least 5+ hours.**
+Follow [these](tree/master/yocto) instructions. *Be aware that this will take at least 5+ hours.*
 
 ## Contributing to this Project ##
 
