@@ -15,7 +15,28 @@ Popular for its familiar package manager (`apt-get`), this build has support for
 
 ### Yocto ###
 
-This Linux distro is great for lightweight projects as it has a rootfs size of about 500MB. Although it has support for the Edison Ethernet block, it does not currently have easy support for MAC spoofing through macchanger. 
+This Linux distro is great for lightweight projects as it has a rootfs size of about 500MB. Although it has support for the Edison Ethernet block, it does not currently have easy support for MAC spoofing through macchanger.
+
+## Installation and Setup ##
+
+To start using the Edison Ethernet block, there are four options, increasing in time/difficulty:
+
+1. Download the binary release of the smsc95xx.ko driver and add it to your kernel modules.
+2. Download pre-packaged images of this project ready to flash with the smsc95xx.ko module baked in.
+3. Clone the Edison-Ethernet git project to avoid using bitbake, but still allowing you flexibility to add/remove files from the rootfs. Build the debian or yocto image and then flash using `./flashall.sh`.
+4. Build from source using `bitbake` and `menuconfig` and flash your device using `./flashall.sh`.
+
+### Option 1 - Binary Release ###
+
+### Option 2 - Pre-packed Images ###
+
+### Option 3 - Leverage This Project ###
+
+See **Contributing to this Project** below.
+
+### Option 4 - Build from Source ###
+
+Follow [these](tree/master/yocto) instructions. **Be aware that this will take at least 5+ hours.**
 
 ## Contributing to this Project ##
 

@@ -297,8 +297,3 @@ Follow these steps after `screen`'ing into your Edison from your host Linux mach
 5. Run `ifconfig` again to get the IP address for `eth0`. Use that IP address to SSH into your edison, without having to use `screen`.
 
 **Known Issue:** For some reason, the Edison will not switch into USB Host mode after a warm reboot (i.e., after running `reboot`). You must start cold by unplugging the Edison and turning it back on again. (For more info, see [here](https://communities.intel.com/thread/57209?start=0&tstart=0))
-
---------------------------------------------------------------
-
-##MACChanger - Changing Your MAC Address##
-
