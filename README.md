@@ -36,7 +36,7 @@ See *Contributing to this Project* below.
 
 #### Option 4 - Build from Source ####
 
-Follow [these](tree/master/yocto) instructions. *Be aware that this will take at least 5+ hours.*
+Follow [these](yocto) instructions. *Be aware that this will take at least 5+ hours.*
 
 ## Contributing to this Project ##
 
