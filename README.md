@@ -9,11 +9,11 @@ Currently, there are two common Linux distros used on the Intel Edison: Yocto Li
 
 We currently support a Debian based distro, based on Ubilinux, and the Yocto distro. Both are built with the Yocto 3.10 kernel, bitbaked with driver support for the LAN9512/SMSC95xx USB-to-Ethernet chip.
 
-### Ubilinux/Debian ###
+#### Ubilinux/Debian ####
 
 Popular for its familiar package manager (`apt-get`), this build has support for the Edison Ethernet block as well as support for MAC spoofing using a tool called [macchanger](https://github.com/alobbs/macchanger).
 
-### Yocto ###
+#### Yocto ####
 
 This Linux distro is great for lightweight projects as it has a rootfs size of about 500MB. Although it has support for the Edison Ethernet block, it does not currently have easy support for MAC spoofing through macchanger.
 
@@ -26,15 +26,15 @@ To start using the Edison Ethernet block, there are four options, increasing in 
 3. Clone the Edison-Ethernet git project to avoid using bitbake, but still allowing you flexibility to add/remove files from the rootfs. Build the debian or yocto image and then flash using `./flashall.sh`.
 4. Build from source using `bitbake` and `menuconfig` and flash your device using `./flashall.sh`.
 
-### Option 1 - Binary Release ###
+#### Option 1 - Binary Release ####
 
-### Option 2 - Pre-packed Images ###
+#### Option 2 - Pre-packed Images ####
 
-### Option 3 - Leverage This Project ###
+#### Option 3 - Leverage This Project ####
 
 See **Contributing to this Project** below.
 
-### Option 4 - Build from Source ###
+#### Option 4 - Build from Source ####
 
 Follow [these](tree/master/yocto) instructions. **Be aware that this will take at least 5+ hours.**
 
