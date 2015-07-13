@@ -21,14 +21,24 @@ This Linux distro is great for lightweight projects as it has a rootfs size of a
 
 To start using the Edison Ethernet block, there are four options, increasing in time/difficulty:
 
-1. Download the binary release of the smsc95xx.ko driver and add it to your kernel modules.
+1. Download the binary release of the `smsc95xx.ko` driver and add it to your kernel modules.
 2. Download pre-packaged images of this project ready to flash with the smsc95xx.ko module baked in.
 3. Clone the Edison-Ethernet git project to avoid using bitbake, but still allowing you flexibility to add/remove files from the rootfs. Build the debian or yocto image and then flash using `./flashall.sh`.
 4. Build from source using `bitbake` and `menuconfig` and flash your device using `./flashall.sh`.
 
 #### Option 1 - Binary Release ####
 
+Download the release corresponding to your board. Extract the files.
+
+Inside the release, there is a directory called `modules`. You'll find different kernel versions inside. To know which kernel module to install on your Edison, run `uname -r` and pick the corresponding directory inside the release. If your kernel version is not available, create an issue and we will release one for that version. You can also make your own by following [these](guides/version-magic-error.md) instructions.
+
+Once you know which kernel version to use, follow [these](guides/installation.md) instructions to copy and install on your Edison.
+
 #### Option 2 - Pre-packed Images ####
+
+Download the release corresponding to your board. Extract the files.
+
+Inside the release, there is a directory called `images`. You'll find two tarballs: `yocto.tar.gz` and `debian.tar.gz`. Extract your choice of distro and use `sudo ./flashall.sh` as normal.
 
 #### Option 3 - Leverage This Project ####
 
@@ -36,7 +46,7 @@ See *Contributing to this Project* below.
 
 #### Option 4 - Build from Source ####
 
-Follow [these](yocto) instructions. *Be aware that this will take at least 5+ hours.*
+Follow [these](guides) instructions. *Be aware that this will take at least 5+ hours.*
 
 ## Contributing to this Project ##
 
