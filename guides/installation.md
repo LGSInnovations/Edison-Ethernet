@@ -5,7 +5,7 @@ These steps can be used after (1) downloading the release binaries, or (2) build
 
 ## Getting the Module to the Edison ##
 
-There are three possible ways to get the module onto the Edison, some better than others:
+There are three ways to get the module onto the Edison:
 
 1. Use WiFi and `curl`
 2. Use a USB drive.
@@ -13,9 +13,37 @@ There are three possible ways to get the module onto the Edison, some better tha
 
 #### Using WiFi ####
 
+If not already done, enable Edison's WiFi using the appropriate guide:
+
+	+ [Yocto](https://software.intel.com/en-us/connecting-your-intel-edison-board-using-wifi)
+	+ [Debian](https://learn.sparkfun.com/tutorials/loading-debian-ubilinux-on-the-edison#enable-wifi)
+
+Use a service such as [transfer.sh](https://transfer.sh/) to `curl` the `smsc95xx.ko` module from your host machine to the Intel Edison.
+
+You should now have the `smsc95xx.ko` in your home folder.
+
 #### USB Drive ####
 
+Copy the `smsc95xx.ko` module from your host machine to a usb drive.
+
+Use a guide (like [this](http://linuxconfig.org/howto-mount-usb-drive-in-linux) one) to mount the USB drive. 
+
+*Remember that you might have to format the drive as FAT32 before you use it.*
+
 #### Edison's Mass-Storage [Yocto only!] ####
+
+This will only work for Yocto, but you can plug the Edison to your host machine through the OTG port and it will show up as a mass-storage device that you can drag the `smsc95xx.ko` file onto.
+
+Then use these steps on your Edison to access the partition:
+
+```bash
+rmmod g_multi
+mkdir /update
+losetup -o 8192 /dev/loop0 /dev/disk/by-partlabel/update
+mount /dev/loop0 /update
+```
+
+*see [this](https://communities.intel.com/message/253856#253856) answer*
 
 ## Installing the Module on the Edison ##
 
@@ -51,3 +79,10 @@ Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
 If the Ethernet is plugged in, you should see the Full-Duplex LED light up on the board.
+
+## Setting up the Network Interface ##
+
+Follow the appropriate guide to set up your Network Inferface:
+	
+	+ [Yocto](yocto-network-setup.md)
+	+ [Debian](ubilinux-network-setup.md)
