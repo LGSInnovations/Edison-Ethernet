@@ -15,8 +15,8 @@ There are three ways to get the module onto the Edison:
 
 If not already done, enable Edison's WiFi using the appropriate guide:
 
-	+ [Yocto](https://software.intel.com/en-us/connecting-your-intel-edison-board-using-wifi)
-	+ [Debian](https://learn.sparkfun.com/tutorials/loading-debian-ubilinux-on-the-edison#enable-wifi)
++ [Yocto](https://software.intel.com/en-us/connecting-your-intel-edison-board-using-wifi)
++ [Debian](https://learn.sparkfun.com/tutorials/loading-debian-ubilinux-on-the-edison#enable-wifi)
 
 Use a service such as [transfer.sh](https://transfer.sh/) to `curl` the `smsc95xx.ko` module from your host machine to the Intel Edison.
 
@@ -84,5 +84,5 @@ If the Ethernet is plugged in, you should see the Full-Duplex LED light up on th
 
 Follow the appropriate guide to set up your Network Inferface:
 	
-	+ [Yocto](yocto-network-setup.md)
-	+ [Debian](ubilinux-network-setup.md)
++ [Yocto](yocto-network-setup.md)
++ [Debian](ubilinux-network-setup.md)
