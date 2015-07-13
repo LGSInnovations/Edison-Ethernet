@@ -45,4 +45,4 @@ This allows you to use the LAN9512 Ethernet block with a Debian-based Linux dist
 
 	And then plug your Edison in via the OTG port of the SparkFun base-board.
 
-7. When booting on the Edison, make sure that all the kernel modules got loaded (there are about 5 of them), otherwise `lsmod` will return no modules, and `lsusb` will return `-99`.
+7. When booting on the Edison, make sure that all the kernel modules got loaded (there are about 5 of them), otherwise `lsmod` will return no modules, and `lsusb` will return `-99`. Note that thedefault password for the _root_ account is "edison."
