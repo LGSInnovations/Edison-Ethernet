@@ -23,7 +23,7 @@ To start using the Edison Ethernet block, there are four options, increasing in 
 
 1. Download the binary release of the `smsc95xx.ko` driver and add it to your kernel modules.
 2. Download pre-packaged images of this project ready to flash with the smsc95xx.ko module baked in.
-3. Clone the Edison-Ethernet git project to avoid using bitbake, but still allowing you flexibility to add/remove files from the rootfs. Build the debian or yocto image and then flash using `./flashall.sh`.
+3. Clone the Edison-Ethernet git project to avoid using bitbake, but still allowing you flexibility to add/remove files from the rootfs. Build the debian or yocto image and then flash using `./flashall.sh` such as illustrated at the end of the guide [here](https://github.com/LGSInnovations/Edison-Ethernet/blob/master/guides/customize-yocto-kernel.md)
 4. Build from source using `bitbake` and `menuconfig` and flash your device using `./flashall.sh`.
 
 #### Option 1 - Binary Release ####
