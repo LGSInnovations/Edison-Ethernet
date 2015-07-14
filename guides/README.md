@@ -8,3 +8,4 @@ These guides can be used for setting up various parts of the Edison-Ethernet pro
 3. Network setup: [Yocto](yocto-network-setup.md) and [Ubilinux](ubilinux-network-setup.md).
 4. Misc: [Version Magic Error](version-magic-error.md) when installing kernel modules.
 5. [Installing](installation.md) the SMSC95xx kernel module.
+6. [Hardware Hookup Guide](hookup-guide.md)
