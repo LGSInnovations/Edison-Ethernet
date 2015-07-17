@@ -4063,7 +4063,10 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <attribute name="NAME" x="16.256" y="69.596" size="0.8128" layer="26" ratio="15" rot="MR180"/>
 <attribute name="VALUE" x="20.066" y="59.436" size="0.8128" layer="28" rot="MR0"/>
 </element>
-<element name="U6" library="SparkFun-DigitalIC" package="UFDFN-20" value="" x="22.606" y="49.911" rot="MR0"/>
+<element name="U6" library="SparkFun-DigitalIC" package="UFDFN-20" value="" x="22.606" y="49.911" smashed="yes" rot="MR0">
+<attribute name="NAME" x="23.332" y="51.511" size="0.8128" layer="26" font="vector" ratio="15" rot="MR0"/>
+<attribute name="VALUE" x="24.856" y="47.511" size="0.8128" layer="28" font="vector" ratio="15" rot="MR0"/>
+</element>
 <element name="D1" library="SparkFun-DiscreteSemi" package="SMA-DIODE" value="" x="68.961" y="12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="67.056" y="11.684" size="0.8128" layer="25" ratio="15" rot="R90"/>
 <attribute name="VALUE" x="67.31" y="12.446" size="0.4064" layer="27" rot="R90"/>
@@ -4747,9 +4750,9 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <vertex x="32.512" y="54.356"/>
 <vertex x="27.178" y="54.356"/>
 <vertex x="26.67" y="54.864"/>
-<vertex x="26.67" y="58.166"/>
+<vertex x="26.67" y="57.912"/>
 <vertex x="49.276" y="57.912"/>
-<vertex x="59.69" y="47.498"/>
+<vertex x="59.817" y="47.625"/>
 <vertex x="61.976" y="47.625"/>
 <vertex x="62.992" y="46.609"/>
 <vertex x="62.992" y="34.29"/>
@@ -6253,9 +6256,9 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <wire x1="64.849" y1="58.0362" x2="64.087" y2="58.2422" width="0.254" layer="1"/>
 <wire x1="61.0108" y1="51.816" x2="61.0108" y2="52.73675" width="0.4064" layer="1"/>
 <wire x1="61.0108" y1="52.73675" x2="61.7855" y2="53.51145" width="0.4064" layer="1"/>
-<wire x1="61.7855" y1="53.51145" x2="66.51625" y2="53.51145" width="0.4064" layer="1"/>
-<wire x1="66.51625" y1="53.51145" x2="68.707" y2="55.7022" width="0.4064" layer="1"/>
-<wire x1="68.707" y1="55.7022" x2="68.707" y2="58.0362" width="0.4064" layer="1"/>
+<wire x1="61.7855" y1="53.51145" x2="66.00825" y2="53.51145" width="0.4064" layer="1"/>
+<wire x1="66.00825" y1="53.51145" x2="68.707" y2="56.2102" width="0.4064" layer="1"/>
+<wire x1="68.707" y1="56.2102" x2="68.707" y2="58.0362" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$26">
 <contactref element="U3" pad="3"/>
