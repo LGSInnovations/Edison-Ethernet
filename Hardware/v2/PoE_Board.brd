@@ -8,7 +8,7 @@
 </settings>
 <grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="0.25" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="gnd" color="11" fill="3" visible="yes" active="yes"/>
 <layer number="3" name="pwr" color="13" fill="3" visible="yes" active="yes"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
@@ -4675,16 +4675,21 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <contactref element="U4" pad="11"/>
 <contactref element="U4" pad="13"/>
 <contactref element="U4" pad="15"/>
-<wire x1="5.7666" y1="49.1928" x2="5.327" y2="49.1928" width="0.1524" layer="16"/>
-<wire x1="5.327" y1="49.1928" x2="4.4704" y2="48.3362" width="0.1524" layer="16"/>
-<wire x1="5.7666" y1="48.7928" x2="4.927" y2="48.7928" width="0.1524" layer="16"/>
-<wire x1="4.927" y1="48.7928" x2="4.4704" y2="48.3362" width="0.1524" layer="16"/>
-<wire x1="5.7666" y1="48.3928" x2="4.527" y2="48.3928" width="0.1524" layer="16"/>
-<wire x1="4.527" y1="48.3928" x2="4.4704" y2="48.3362" width="0.1524" layer="16"/>
-<wire x1="5.7666" y1="47.9928" x2="4.8138" y2="47.9928" width="0.1524" layer="16"/>
-<wire x1="4.8138" y1="47.9928" x2="4.4704" y2="48.3362" width="0.1524" layer="16"/>
 <contactref element="U4" pad="5"/>
 <wire x1="5.7666" y1="49.9928" x2="3.3528" y2="49.9872" width="0.1524" layer="16"/>
+<wire x1="5.7666" y1="49.1928" x2="5.1238" y2="49.1928" width="0.1524" layer="16"/>
+<wire x1="5.1238" y1="49.1928" x2="4.953" y2="49.022" width="0.1524" layer="16"/>
+<wire x1="4.953" y1="49.022" x2="4.953" y2="48.8188" width="0.1524" layer="16"/>
+<wire x1="4.953" y1="48.8188" x2="4.4704" y2="48.3362" width="0.1524" layer="16"/>
+<wire x1="5.7666" y1="48.7928" x2="4.979" y2="48.7928" width="0.1524" layer="16"/>
+<wire x1="4.979" y1="48.7928" x2="4.953" y2="48.8188" width="0.1524" layer="16"/>
+<wire x1="5.7666" y1="48.3928" x2="5.2001" y2="48.3928" width="0.1524" layer="16"/>
+<wire x1="5.2001" y1="48.3928" x2="5.01015" y2="48.20285" width="0.1524" layer="16"/>
+<wire x1="5.01015" y1="48.20285" x2="4.95935" y2="48.15205" width="0.1524" layer="16"/>
+<wire x1="4.95935" y1="48.15205" x2="4.65455" y2="48.15205" width="0.1524" layer="16"/>
+<wire x1="4.65455" y1="48.15205" x2="4.4704" y2="48.3362" width="0.1524" layer="16"/>
+<wire x1="5.7666" y1="47.9928" x2="5.2202" y2="47.9928" width="0.1524" layer="16"/>
+<wire x1="5.2202" y1="47.9928" x2="5.01015" y2="48.20285" width="0.1524" layer="16"/>
 </signal>
 <signal name="N$1">
 <contactref element="U2" pad="62"/>
@@ -6282,6 +6287,8 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <vertex x="70.231" y="27.0002"/>
 </polygon>
 <contactref element="R10" pad="1"/>
+<contactref element="X1" pad="S1"/>
+<contactref element="X1" pad="S2"/>
 </signal>
 <signal name="USBSHLD">
 <polygon width="0.1524" layer="1" isolate="0.4064">
@@ -6529,9 +6536,9 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <signal name="18_B2_CS">
 <contactref element="USD" pad="2"/>
 <contactref element="U6" pad="18"/>
-<wire x1="23.606" y1="50.811" x2="23.606" y2="54.3527" width="0.1778" layer="16"/>
-<wire x1="23.606" y1="54.3527" x2="24.0284" y2="54.7751" width="0.1778" layer="16"/>
-<wire x1="24.0284" y1="54.7751" x2="24.0284" y2="57.1119" width="0.1778" layer="16"/>
+<wire x1="23.606" y1="50.811" x2="23.606" y2="54.0987" width="0.1778" layer="16"/>
+<wire x1="23.606" y1="54.0987" x2="24.0284" y2="54.5211" width="0.1778" layer="16"/>
+<wire x1="24.0284" y1="54.5211" x2="24.0284" y2="57.1119" width="0.1778" layer="16"/>
 <wire x1="24.0284" y1="57.1119" x2="18.9992" y2="62.1411" width="0.1778" layer="16"/>
 <wire x1="18.9992" y1="62.1411" x2="18.9992" y2="64.436" width="0.1778" layer="16"/>
 <wire x1="18.9992" y1="64.436" x2="19.016" y2="64.656" width="0.1778" layer="16"/>
@@ -6539,9 +6546,9 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <signal name="17_B3_DI">
 <contactref element="USD" pad="3"/>
 <contactref element="U6" pad="17"/>
-<wire x1="23.206" y1="50.811" x2="23.206" y2="54.4957" width="0.1778" layer="16"/>
-<wire x1="23.206" y1="54.4957" x2="23.6347" y2="54.9275" width="0.1778" layer="16"/>
-<wire x1="23.6347" y1="54.9275" x2="23.6347" y2="56.4388" width="0.1778" layer="16"/>
+<wire x1="23.206" y1="50.811" x2="23.206" y2="54.2417" width="0.1778" layer="16"/>
+<wire x1="23.206" y1="54.2417" x2="23.6347" y2="54.8005" width="0.1778" layer="16"/>
+<wire x1="23.6347" y1="54.8005" x2="23.6347" y2="56.4388" width="0.1778" layer="16"/>
 <wire x1="23.6347" y1="56.4388" x2="17.9451" y2="62.1284" width="0.1778" layer="16"/>
 <wire x1="17.9451" y1="62.1284" x2="17.9451" y2="64.7827" width="0.1778" layer="16"/>
 <wire x1="17.9451" y1="64.7827" x2="17.916" y2="65.056" width="0.1778" layer="16"/>
