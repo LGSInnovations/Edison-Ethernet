@@ -3961,8 +3961,8 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <element name="USB" library="SparkFun-Connectors" package="USB-A-S" value="USB-A-S" x="73.279" y="61.0362" smashed="yes" rot="R180">
 <attribute name="NAME" x="70.541" y="69.0848" size="0.8128" layer="25" ratio="15" rot="R180"/>
 </element>
-<element name="L1" library="murata-inductors" package="L0603" value="2.0A 120Ohm" x="28.587" y="54.1562" smashed="yes" rot="R90">
-<attribute name="NAME" x="27.792" y="53.5442" size="0.8128" layer="25" ratio="15" rot="R90"/>
+<element name="L1" library="murata-inductors" package="L0603" value="2.0A 120Ohm" x="29.222" y="54.1562" smashed="yes" rot="R90">
+<attribute name="NAME" x="29.443" y="55.7032" size="0.8128" layer="25" ratio="15" rot="R90"/>
 </element>
 <element name="L2" library="murata-inductors" package="L0603" value="2.0A 120Ohm" x="48.133" y="47.2948" smashed="yes" rot="MR270">
 <attribute name="NAME" x="47.117" y="50.2158" size="1.27" layer="26" ratio="15" rot="MR180"/>
@@ -4772,8 +4772,8 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 </polygon>
 <via x="42.1894" y="44.577" extent="1-16" drill="0.3302"/>
 <wire x1="40.844" y1="44.8302" x2="40.8432" y2="44.831" width="0.1524" layer="1"/>
-<wire x1="28.587" y1="54.9812" x2="29.9586" y2="54.9918" width="0.254" layer="1"/>
-<via x="29.9586" y="54.9918" extent="1-16" drill="0.3302"/>
+<wire x1="29.222" y1="54.9812" x2="27.7996" y2="54.9918" width="0.254" layer="1"/>
+<via x="27.7996" y="54.9918" extent="1-16" drill="0.3302"/>
 <via x="42.672" y="42.799" extent="1-16" drill="0.3302"/>
 <wire x1="40.894" y1="43.7642" x2="40.8686" y2="43.815" width="0.1524" layer="1"/>
 <via x="43.3578" y="41.9608" extent="1-16" drill="0.3302"/>
@@ -4859,9 +4859,9 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <wire x1="33.1978" y1="51.9684" x2="33.195259375" y2="52.9082" width="0.254" layer="1"/>
 <wire x1="33.195259375" y1="52.9082" x2="32.1691" y2="52.9082" width="0.254" layer="1"/>
 <via x="32.1691" y="52.9082" extent="1-16" drill="0.3302"/>
-<wire x1="32.1691" y1="52.9082" x2="31.496" y2="52.9082" width="0.254" layer="16"/>
-<wire x1="31.496" y1="52.9082" x2="31.242" y2="52.6542" width="0.254" layer="16"/>
-<wire x1="31.242" y1="52.6542" x2="31.242" y2="43.3832" width="0.254" layer="16"/>
+<wire x1="32.1691" y1="52.9082" x2="31.623" y2="52.9082" width="0.254" layer="16"/>
+<wire x1="31.623" y1="52.9082" x2="31.242" y2="52.5272" width="0.254" layer="16"/>
+<wire x1="31.242" y1="52.5272" x2="31.242" y2="43.3832" width="0.254" layer="16"/>
 <wire x1="31.242" y1="43.3832" x2="32.131" y2="42.4942" width="0.254" layer="16"/>
 <wire x1="32.131" y1="42.4942" x2="34.036" y2="42.4942" width="0.254" layer="16"/>
 <wire x1="34.036" y1="42.4942" x2="34.4805" y2="42.1132" width="0.254" layer="16"/>
@@ -6567,12 +6567,12 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <wire x1="15.6972" y1="63.0428" x2="15.6972" y2="65.0372" width="0.2032" layer="16"/>
 <wire x1="15.6972" y1="65.0372" x2="15.716" y2="65.056" width="0.2032" layer="16"/>
 <wire x1="20.971" y1="50.684" x2="20.971" y2="52.0065" width="0.2032" layer="16"/>
-<wire x1="20.971" y1="52.0065" x2="20.7137" y2="52.2605" width="0.2032" layer="16"/>
-<wire x1="20.7137" y1="52.2605" x2="20.7137" y2="54.6862" width="0.2032" layer="16"/>
-<wire x1="20.7137" y1="54.6862" x2="21.0312" y2="55.0037" width="0.2032" layer="1"/>
-<via x="20.7137" y="54.6862" extent="1-16" drill="0.3302"/>
+<wire x1="20.971" y1="52.0065" x2="20.5867" y2="52.3875" width="0.2032" layer="16"/>
+<wire x1="20.5867" y1="52.3875" x2="20.5867" y2="53.5432" width="0.2032" layer="16"/>
+<wire x1="20.5867" y1="53.5432" x2="22.0472" y2="55.0037" width="0.2032" layer="1"/>
+<via x="20.5867" y="53.5432" extent="1-16" drill="0.3302"/>
 <via x="22.5933" y="55.0037" extent="1-16" drill="0.3302"/>
-<wire x1="21.0312" y1="55.0037" x2="22.5933" y2="55.0037" width="0.2032" layer="1"/>
+<wire x1="22.0472" y1="55.0037" x2="22.5933" y2="55.0037" width="0.2032" layer="1"/>
 <wire x1="22.5933" y1="56.1467" x2="22.5933" y2="55.0037" width="0.2032" layer="16"/>
 </signal>
 <signal name="15_B5_DO">
@@ -6750,19 +6750,19 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <contactref element="C2" pad="1"/>
 <wire x1="30.191" y1="50.6222" x2="30.191" y2="50.81595" width="0.254" layer="1"/>
 <wire x1="30.861" y1="50.6222" x2="30.191" y2="50.6222" width="0.254" layer="1"/>
-<via x="30.099" y="52.959" extent="1-16" drill="0.3302"/>
+<via x="30.48" y="52.959" extent="1-16" drill="0.3302"/>
 <via x="34.6837" y="54.5465" extent="1-16" drill="0.3302"/>
-<wire x1="30.099" y1="52.959" x2="30.099" y2="53.467" width="0.254" layer="16"/>
-<wire x1="30.099" y1="53.467" x2="30.734" y2="54.102" width="0.254" layer="16"/>
-<wire x1="30.734" y1="54.102" x2="34.2392" y2="54.102" width="0.254" layer="16"/>
+<wire x1="30.48" y1="52.959" x2="30.48" y2="53.467" width="0.254" layer="16"/>
+<wire x1="30.48" y1="53.467" x2="31.115" y2="54.102" width="0.254" layer="16"/>
+<wire x1="31.115" y1="54.102" x2="34.2392" y2="54.102" width="0.254" layer="16"/>
 <wire x1="34.2392" y1="54.102" x2="34.6837" y2="54.5465" width="0.254" layer="16"/>
 <contactref element="U2" pad="11"/>
 <wire x1="35.2044" y1="51.9684" x2="35.2044" y2="54.0258" width="0.254" layer="1"/>
 <wire x1="35.2044" y1="54.0258" x2="34.6837" y2="54.5465" width="0.254" layer="1"/>
-<via x="28.60675" y="52.16525" extent="1-16" drill="0.3302"/>
+<via x="27.84475" y="53.30825" extent="1-16" drill="0.3302"/>
 <contactref element="L1" pad="1"/>
-<wire x1="28.587" y1="53.3312" x2="28.587" y2="52.185" width="0.254" layer="1"/>
-<wire x1="28.587" y1="52.185" x2="28.60675" y2="52.16525" width="0.254" layer="1"/>
+<wire x1="29.222" y1="53.3312" x2="28.333" y2="53.328" width="0.254" layer="1"/>
+<wire x1="28.333" y1="53.328" x2="27.84475" y2="53.30825" width="0.254" layer="1"/>
 <contactref element="U1" pad="8"/>
 <wire x1="9.9942" y1="49.5928" x2="10.8966" y2="50.4952" width="0.1524" layer="16"/>
 <contactref element="U4" pad="8"/>
