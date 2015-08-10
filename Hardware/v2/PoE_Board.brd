@@ -6842,7 +6842,7 @@ http://www.4pcb.com/Capabilities-Brochure-APRIL2014-WEBFINAL.pdf&lt;/p&gt;
 <wire x1="23.368" y1="8.772" x2="23.368" y2="7.874" width="0.254" layer="1"/>
 <wire x1="23.368" y1="7.874" x2="23.114" y2="7.62" width="0.254" layer="1"/>
 <wire x1="23.114" y1="7.62" x2="19.558" y2="7.62" width="0.254" layer="1"/>
-<via x="19.558" y="7.62" extent="1-16" drill="0.254"/>
+<via x="19.558" y="7.62" extent="1-16" drill="0.3302"/>
 <wire x1="19.558" y1="7.62" x2="14.224" y2="7.62" width="0.254" layer="16"/>
 <wire x1="14.224" y1="7.62" x2="13.589" y2="8.255" width="0.254" layer="16"/>
 <wire x1="15.1765" y1="12.8143" x2="15.1765" y2="14.3383" width="0.254" layer="1"/>
