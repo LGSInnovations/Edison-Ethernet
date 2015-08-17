@@ -7003,6 +7003,12 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
+<symbol name="VCC">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="+3V3" prefix="+3V3">
@@ -7035,6 +7041,19 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="VDD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="VCC" prefix="P+">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="VCC" symbol="VCC" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -14992,6 +15011,24 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-1.65" y1="0.2" x2="-1.65" y2="-0.2" width="0.127" layer="21"/>
 <wire x1="1.65" y1="0.2" x2="1.65" y2="-0.2" width="0.127" layer="21"/>
 </package>
+<package name="6-UFDFN">
+<smd name="P6" x="-0.5" y="0.625" dx="0.26" dy="0.4" layer="1"/>
+<smd name="P5" x="0" y="0.625" dx="0.26" dy="0.4" layer="1"/>
+<smd name="P4" x="0.5" y="0.625" dx="0.26" dy="0.4" layer="1"/>
+<smd name="P3" x="0.5" y="-0.625" dx="0.26" dy="0.4" layer="1"/>
+<smd name="P2" x="0" y="-0.625" dx="0.26" dy="0.4" layer="1"/>
+<smd name="P1" x="-0.5" y="-0.625" dx="0.26" dy="0.4" layer="1"/>
+<smd name="GND" x="0" y="0" dx="1.25" dy="0.5" layer="1"/>
+<wire x1="-0.8" y1="0.8" x2="-0.8" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="-0.8" x2="0.8" y2="-0.8" width="0.127" layer="51"/>
+<wire x1="0.8" y1="-0.8" x2="0.8" y2="0.8" width="0.127" layer="51"/>
+<wire x1="0.8" y1="0.8" x2="-0.8" y2="0.8" width="0.127" layer="51"/>
+<wire x1="-0.889" y1="-0.635" x2="-0.889" y2="0.762" width="0.127" layer="21"/>
+<wire x1="0.889" y1="0.762" x2="0.889" y2="-0.762" width="0.127" layer="21"/>
+<text x="-0.889" y="1.016" size="0.8128" layer="25" ratio="15">&gt;Name</text>
+<text x="-0.889" y="-1.905" size="0.8128" layer="27" ratio="15">&gt;Value</text>
+<circle x="-1.016" y="-0.635" radius="0.127" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP_POL">
@@ -15023,6 +15060,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-1.016" y1="0" x2="-1.016" y2="-1.778" width="0.254" layer="94"/>
 <pin name="3" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
 <wire x1="0" y1="-2.8" x2="0" y2="-1.6" width="0.1524" layer="94"/>
+</symbol>
+<symbol name="MIC5353">
+<wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-7.62" x2="7.62" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-7.62" x2="7.62" y2="7.62" width="0.254" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="-7.62" y2="7.62" width="0.254" layer="94"/>
+<pin name="VIN" x="-10.16" y="0" length="short"/>
+<pin name="EN" x="-10.16" y="5.08" length="short"/>
+<pin name="BYP" x="10.16" y="-5.08" length="short" rot="R180"/>
+<pin name="VOUT" x="10.16" y="5.08" length="short" rot="R180"/>
+<pin name="GND" x="-10.16" y="-5.08" length="short"/>
+<pin name="NC" x="10.16" y="0" length="short" rot="R180"/>
+<text x="-7.62" y="8.89" size="1.27" layer="95">&gt;Name</text>
+<text x="-7.62" y="-10.16" size="1.27" layer="96">&gt;Value</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -15059,6 +15110,107 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </device>
 </devices>
 </deviceset>
+<deviceset name="MIC5353-XXYMT" prefix="U" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="MIC5353" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="6-UFDFN">
+<connects>
+<connect gate="G$1" pin="BYP" pad="P6"/>
+<connect gate="G$1" pin="EN" pad="P1"/>
+<connect gate="G$1" pin="GND" pad="GND P2"/>
+<connect gate="G$1" pin="NC" pad="P5"/>
+<connect gate="G$1" pin="VIN" pad="P3"/>
+<connect gate="G$1" pin="VOUT" pad="P4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="SparkFun-Capacitors">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find resistors, capacitors, inductors, test points, jumper pads, etc.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="0402-CAP">
+<description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
+chip</description>
+<wire x1="-0.245" y1="0.224" x2="0.245" y2="0.224" width="0.1524" layer="51"/>
+<wire x1="0.245" y1="-0.224" x2="-0.245" y2="-0.224" width="0.1524" layer="51"/>
+<wire x1="-1.473" y1="0.483" x2="1.473" y2="0.483" width="0.0508" layer="39"/>
+<wire x1="1.473" y1="0.483" x2="1.473" y2="-0.483" width="0.0508" layer="39"/>
+<wire x1="1.473" y1="-0.483" x2="-1.473" y2="-0.483" width="0.0508" layer="39"/>
+<wire x1="-1.473" y1="-0.483" x2="-1.473" y2="0.483" width="0.0508" layer="39"/>
+<wire x1="0" y1="0.0305" x2="0" y2="-0.0305" width="0.4064" layer="21"/>
+<smd name="1" x="-0.58" y="0" dx="0.85" dy="0.9" layer="1"/>
+<smd name="2" x="0.58" y="0" dx="0.85" dy="0.9" layer="1"/>
+<text x="-0.889" y="0.6985" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.0795" y="-1.143" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
+<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
+</package>
+</packages>
+<symbols>
+<symbol name="CAP">
+<wire x1="0" y1="2.54" x2="0" y2="2.032" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="0.508" width="0.1524" layer="94"/>
+<text x="1.524" y="2.921" size="1.778" layer="95">&gt;NAME</text>
+<text x="1.524" y="-2.159" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-2.032" y1="0.508" x2="2.032" y2="1.016" layer="94"/>
+<rectangle x1="-2.032" y1="1.524" x2="2.032" y2="2.032" layer="94"/>
+<pin name="1" x="0" y="5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
+<pin name="2" x="0" y="-2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="1.0UF-16V-10%(0402)" prefix="C" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="CAP" x="0" y="-2.54"/>
+</gates>
+<devices>
+<device name="" package="0402-CAP">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="CAP-12417"/>
+<attribute name="VALUE" value="1.0uF"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="0.1UF-16V(+-10%)(0402)" prefix="C" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="CAP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="0402-CAP">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="CAP-12416"/>
+<attribute name="VALUE" value="0.1uF"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -15083,7 +15235,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="C2" library="rcl" deviceset="C-US" device="C0402K" value="0.1"/>
 <part name="C6" library="rcl" deviceset="C-US" device="C0402K" value="0.1"/>
 <part name="C7" library="rcl" deviceset="C-US" device="C0402K" value="0.1"/>
@@ -15155,6 +15306,17 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="C26" library="PoEdev" deviceset="EEF-CXXXXXXX" device="" value="56uF"/>
 <part name="C28" library="PoEdev" deviceset="EEF-CXXXXXXX" device="" value="100uF"/>
 <part name="U$1" library="PoEdev" deviceset="CRYSTAL-ESC-32" device="" value="25MHz"/>
+<part name="GND11" library="supply1" deviceset="GND" device=""/>
+<part name="C20" library="SparkFun-Capacitors" deviceset="1.0UF-16V-10%(0402)" device="" value="1.0uF"/>
+<part name="C21" library="SparkFun-Capacitors" deviceset="1.0UF-16V-10%(0402)" device="" value="1.0uF"/>
+<part name="GND15" library="supply1" deviceset="GND" device=""/>
+<part name="U5" library="PoEdev" deviceset="MIC5353-XXYMT" device="" value="MIC5353-3.3YMT"/>
+<part name="GND21" library="supply1" deviceset="GND" device=""/>
+<part name="P+1" library="supply1" deviceset="VCC" device="" value="VSYS"/>
+<part name="P+2" library="supply1" deviceset="VCC" device="" value="VSYS"/>
+<part name="P+3" library="supply1" deviceset="VCC" device="" value="VSYS"/>
+<part name="C19" library="SparkFun-Capacitors" deviceset="0.1UF-16V(+-10%)(0402)" device="" value="0.1uF"/>
+<part name="GND22" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -15165,8 +15327,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="322.58" y="266.7" size="1.778" layer="91">All Resistor Tolerances are 1% unless otherwise specified</text>
 <text x="327.66" y="93.98" size="1.778" layer="91">All Resistor Tolerances are 1% unless otherwise specified</text>
 <text x="327.66" y="27.94" size="3.048" layer="91">Ethernet/USB Block for Intel Edison</text>
-<text x="416.56" y="7.62" size="3.81" layer="91">3</text>
-<text x="327.66" y="7.62" size="1.778" layer="91">Changed crystal, got rid of test points</text>
+<text x="416.56" y="7.62" size="3.81" layer="91">3.2</text>
+<text x="327.66" y="7.62" size="1.778" layer="91">Added LDO for power off VSYS</text>
 <text x="327.406" y="11.176" size="2.54" layer="91">---------------------REVISION NOTES</text>
 <text x="7.62" y="142.24" size="1.778" layer="91">All connections pass-through to 
 bottom connector EXCEPT Upstream USB
@@ -15200,7 +15362,6 @@ bottom connector EXCEPT Upstream USB
 <instance part="GND1" gate="1" x="66.04" y="213.36"/>
 <instance part="GND2" gate="1" x="137.16" y="208.28"/>
 <instance part="GND3" gate="1" x="53.34" y="40.64"/>
-<instance part="+3V3" gate="G$1" x="48.26" y="157.48"/>
 <instance part="C2" gate="G$1" x="43.18" y="228.6" smashed="yes">
 <attribute name="NAME" x="39.116" y="229.235" size="1.778" layer="95"/>
 <attribute name="VALUE" x="39.116" y="224.409" size="1.778" layer="96"/>
@@ -15361,7 +15522,9 @@ bottom connector EXCEPT Upstream USB
 <instance part="GND18" gate="1" x="378.46" y="215.9"/>
 <instance part="U4" gate="G$1" x="134.62" y="134.62"/>
 <instance part="GND19" gate="1" x="121.92" y="40.64"/>
-<instance part="+3V10" gate="G$1" x="116.84" y="157.48"/>
+<instance part="+3V10" gate="G$1" x="274.32" y="55.88" smashed="yes">
+<attribute name="VALUE" x="276.86" y="58.42" size="1.778" layer="96" rot="R180"/>
+</instance>
 <instance part="U3" gate="A" x="370.84" y="228.6" rot="MR0"/>
 <instance part="R15" gate="G$1" x="386.08" y="223.52" smashed="yes" rot="R180">
 <attribute name="NAME" x="384.81" y="222.0214" size="1.778" layer="95" rot="R180"/>
@@ -15387,6 +15550,23 @@ bottom connector EXCEPT Upstream USB
 <instance part="U$1" gate="G$1" x="299.72" y="124.46" smashed="yes" rot="R90">
 <attribute name="VALUE" x="305.054" y="128.016" size="1.778" layer="96" rot="R180"/>
 </instance>
+<instance part="GND11" gate="1" x="274.32" y="12.7"/>
+<instance part="C20" gate="G$1" x="215.9" y="25.4" rot="R180"/>
+<instance part="C21" gate="G$1" x="274.32" y="38.1" rot="R180"/>
+<instance part="GND15" gate="1" x="215.9" y="12.7"/>
+<instance part="U5" gate="G$1" x="238.76" y="38.1"/>
+<instance part="GND21" gate="1" x="223.52" y="12.7"/>
+<instance part="P+1" gate="VCC" x="215.9" y="55.88" smashed="yes">
+<attribute name="VALUE" x="218.44" y="58.42" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="P+2" gate="VCC" x="124.46" y="172.72" smashed="yes">
+<attribute name="VALUE" x="127" y="175.26" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="P+3" gate="VCC" x="55.88" y="172.72" smashed="yes">
+<attribute name="VALUE" x="58.42" y="175.26" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C19" gate="G$1" x="259.08" y="25.4"/>
+<instance part="GND22" gate="1" x="259.08" y="12.7"/>
 </instances>
 <busses>
 </busses>
@@ -15404,17 +15584,6 @@ bottom connector EXCEPT Upstream USB
 </segment>
 </net>
 <net name="+3V3" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="3.3V@1"/>
-<wire x1="60.96" y1="152.4" x2="55.88" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="55.88" y1="152.4" x2="55.88" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="3.3V@2"/>
-<wire x1="55.88" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="+3V3" gate="G$1" pin="+3V3"/>
-<wire x1="55.88" y1="152.4" x2="48.26" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="152.4" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
-<junction x="55.88" y="152.4"/>
-</segment>
 <segment>
 <pinref part="U2" gate="A" pin="VDD33IO_5"/>
 <wire x1="238.76" y1="228.6" x2="236.22" y2="228.6" width="0.1524" layer="91"/>
@@ -15492,17 +15661,6 @@ bottom connector EXCEPT Upstream USB
 <wire x1="340.36" y1="109.22" x2="353.06" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U4" gate="G$1" pin="3.3V@1"/>
-<wire x1="129.54" y1="152.4" x2="124.46" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="152.4" x2="124.46" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="U4" gate="G$1" pin="3.3V@2"/>
-<wire x1="124.46" y1="149.86" x2="129.54" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="+3V10" gate="G$1" pin="+3V3"/>
-<wire x1="124.46" y1="152.4" x2="116.84" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="152.4" x2="116.84" y2="154.94" width="0.1524" layer="91"/>
-<junction x="124.46" y="152.4"/>
-</segment>
-<segment>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="66.04" y1="231.14" x2="66.04" y2="238.76" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="238.76" x2="58.42" y2="238.76" width="0.1524" layer="91"/>
@@ -15523,6 +15681,15 @@ bottom connector EXCEPT Upstream USB
 <wire x1="58.42" y1="231.14" x2="58.42" y2="238.76" width="0.1524" layer="91"/>
 <junction x="58.42" y="238.76"/>
 <pinref part="+3V11" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="C21" gate="G$1" pin="2"/>
+<wire x1="248.92" y1="43.18" x2="274.32" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="43.18" x2="274.32" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="+3V10" gate="G$1" pin="+3V3"/>
+<wire x1="274.32" y1="43.18" x2="274.32" y2="53.34" width="0.1524" layer="91"/>
+<junction x="274.32" y="43.18"/>
+<pinref part="U5" gate="G$1" pin="VOUT"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -15739,6 +15906,27 @@ bottom connector EXCEPT Upstream USB
 <pinref part="R16" gate="G$1" pin="1"/>
 <pinref part="GND20" gate="1" pin="GND"/>
 <wire x1="403.86" y1="223.52" x2="403.86" y2="218.44" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND11" gate="1" pin="GND"/>
+<wire x1="274.32" y1="33.02" x2="274.32" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="C21" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="GND15" gate="1" pin="GND"/>
+<pinref part="C20" gate="G$1" pin="1"/>
+<wire x1="215.9" y1="15.24" x2="215.9" y2="20.32" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U5" gate="G$1" pin="GND"/>
+<pinref part="GND21" gate="1" pin="GND"/>
+<wire x1="228.6" y1="33.02" x2="223.52" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="33.02" x2="223.52" y2="15.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C19" gate="G$1" pin="2"/>
+<pinref part="GND22" gate="1" pin="GND"/>
+<wire x1="259.08" y1="22.86" x2="259.08" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VDD18USBPLL" class="0">
@@ -16079,36 +16267,6 @@ bottom connector EXCEPT Upstream USB
 <label x="355.6" y="142.24" size="1.778" layer="95"/>
 <pinref part="R10" gate="G$1" pin="1"/>
 <wire x1="347.98" y1="134.62" x2="347.98" y2="144.78" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="P2" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="VSYS@1"/>
-<wire x1="60.96" y1="162.56" x2="55.88" y2="162.56" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U4" gate="G$1" pin="VSYS@1"/>
-<wire x1="129.54" y1="162.56" x2="124.46" y2="162.56" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="P4" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="VSYS@2"/>
-<wire x1="60.96" y1="160.02" x2="55.88" y2="160.02" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U4" gate="G$1" pin="VSYS@2"/>
-<wire x1="129.54" y1="160.02" x2="124.46" y2="160.02" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="P6" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="VSYS@3"/>
-<wire x1="60.96" y1="157.48" x2="55.88" y2="157.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U4" gate="G$1" pin="VSYS@3"/>
-<wire x1="129.54" y1="157.48" x2="124.46" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="P14" class="0">
@@ -16741,6 +16899,73 @@ bottom connector EXCEPT Upstream USB
 <pinref part="U4" gate="G$1" pin="USB_DP"/>
 <wire x1="129.54" y1="119.38" x2="124.46" y2="119.38" width="0.1524" layer="91"/>
 <label x="116.84" y="119.38" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="ED3V" class="0">
+<segment>
+<pinref part="U4" gate="G$1" pin="3.3V@1"/>
+<wire x1="129.54" y1="152.4" x2="124.46" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="152.4" x2="124.46" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="3.3V@2"/>
+<wire x1="124.46" y1="149.86" x2="129.54" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="3.3V@1"/>
+<wire x1="60.96" y1="152.4" x2="55.88" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="152.4" x2="55.88" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="3.3V@2"/>
+<wire x1="55.88" y1="149.86" x2="60.96" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<wire x1="248.92" y1="33.02" x2="259.08" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="259.08" y1="33.02" x2="259.08" y2="30.48" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="BYP"/>
+<pinref part="C19" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="VCC" class="0">
+<segment>
+<pinref part="C20" gate="G$1" pin="2"/>
+<wire x1="215.9" y1="27.94" x2="215.9" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="38.1" x2="223.52" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="U5" gate="G$1" pin="EN"/>
+<wire x1="223.52" y1="38.1" x2="228.6" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="43.18" x2="223.52" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="43.18" x2="223.52" y2="38.1" width="0.1524" layer="91"/>
+<junction x="223.52" y="38.1"/>
+<wire x1="215.9" y1="38.1" x2="215.9" y2="53.34" width="0.1524" layer="91"/>
+<junction x="215.9" y="38.1"/>
+<pinref part="P+1" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="U4" gate="G$1" pin="VSYS@1"/>
+<wire x1="129.54" y1="162.56" x2="124.46" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="VSYS@3"/>
+<wire x1="129.54" y1="157.48" x2="124.46" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="U4" gate="G$1" pin="VSYS@2"/>
+<wire x1="124.46" y1="160.02" x2="124.46" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="162.56" x2="124.46" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="160.02" x2="124.46" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="157.48" x2="124.46" y2="160.02" width="0.1524" layer="91"/>
+<junction x="124.46" y="160.02"/>
+<junction x="124.46" y="162.56"/>
+<pinref part="P+2" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="VSYS@3"/>
+<wire x1="60.96" y1="157.48" x2="55.88" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="U1" gate="G$1" pin="VSYS@2"/>
+<wire x1="55.88" y1="162.56" x2="55.88" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="160.02" x2="55.88" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="157.48" x2="55.88" y2="160.02" width="0.1524" layer="91"/>
+<junction x="55.88" y="160.02"/>
+<pinref part="U1" gate="G$1" pin="VSYS@1"/>
+<wire x1="60.96" y1="162.56" x2="55.88" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="160.02" x2="55.88" y2="162.56" width="0.1524" layer="91"/>
+<junction x="55.88" y="162.56"/>
+<pinref part="P+3" gate="VCC" pin="VCC"/>
 </segment>
 </net>
 </nets>
