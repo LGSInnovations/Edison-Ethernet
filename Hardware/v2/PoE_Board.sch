@@ -16692,6 +16692,18 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-0.889" y="-1.905" size="0.8128" layer="27" ratio="15">&gt;Value</text>
 <circle x="-1.016" y="-0.635" radius="0.127" width="0.127" layer="21"/>
 </package>
+<package name="R1225">
+<smd name="P$1" x="-1.55" y="0" dx="1.9" dy="7.6" layer="1"/>
+<smd name="P$2" x="1.55" y="0" dx="1.9" dy="7.6" layer="1"/>
+<wire x1="-1.6" y1="3.2" x2="1.6" y2="3.2" width="0.127" layer="51"/>
+<wire x1="1.6" y1="3.2" x2="1.6" y2="-3.2" width="0.127" layer="51"/>
+<wire x1="1.6" y1="-3.2" x2="-1.6" y2="-3.2" width="0.127" layer="51"/>
+<wire x1="-1.6" y1="-3.2" x2="-1.6" y2="3.2" width="0.127" layer="51"/>
+<wire x1="-0.2" y1="3.2" x2="0.2" y2="3.2" width="0.127" layer="21"/>
+<wire x1="-0.2" y1="-3.2" x2="0.2" y2="-3.2" width="0.127" layer="21"/>
+<text x="2.1" y="2.4" size="0.8128" layer="25" ratio="15">&gt;Name</text>
+<text x="2" y="-3.2" size="0.8128" layer="27" ratio="15">&gt;Value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RB1-125BHQ1A">
@@ -16791,6 +16803,21 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pin name="NC" x="10.16" y="0" length="short" rot="R180"/>
 <text x="-7.62" y="8.89" size="1.27" layer="95">&gt;Name</text>
 <text x="-7.62" y="-10.16" size="1.27" layer="96">&gt;Value</text>
+</symbol>
+<symbol name="RESISTOR">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<text x="-3.81" y="1.4986" size="1.778" layer="95">&gt;NAME</text>
+<text x="-3.81" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -16892,6 +16919,22 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <connect gate="G$1" pin="NC" pad="P5"/>
 <connect gate="G$1" pin="VIN" pad="P3"/>
 <connect gate="G$1" pin="VOUT" pad="P4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="24OHM_1225" prefix="R" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="R1225">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -18808,7 +18851,6 @@ LilyPad 1206- DIO-09909&lt;br&gt;
 <part name="C38" library="SparkFun-Capacitors" deviceset="47PF-50V-5%(0603)" device="" value="47pF"/>
 <part name="C39" library="SparkFun-Capacitors" deviceset="47PF-50V-5%(0603)" device="" value="47pF"/>
 <part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="1.8V" device=""/>
-<part name="R20" library="resistor" deviceset="R-US_" device="R1206" value="20"/>
 <part name="VSYS" library="supply1" deviceset="VCC" device="" value="VSYS"/>
 <part name="VSYS1" library="supply1" deviceset="VCC" device="" value="VSYS"/>
 <part name="VSYS2" library="supply1" deviceset="VCC" device="" value="VSYS"/>
@@ -18835,6 +18877,7 @@ LilyPad 1206- DIO-09909&lt;br&gt;
 <part name="GND40" library="supply1" deviceset="GND" device=""/>
 <part name="GND41" library="supply1" deviceset="GND" device=""/>
 <part name="GND42" library="supply1" deviceset="GND" device=""/>
+<part name="R20" library="PoEdev" deviceset="24OHM_1225" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18845,8 +18888,8 @@ LilyPad 1206- DIO-09909&lt;br&gt;
 <text x="322.58" y="266.7" size="1.778" layer="91">All Resistor Tolerances are 1% unless otherwise specified</text>
 <text x="292.1" y="96.52" size="1.778" layer="91">All Resistor Tolerances are 1% unless otherwise specified</text>
 <text x="327.66" y="27.94" size="3.048" layer="91">Ethernet/USB Block for Intel Edison</text>
-<text x="414.02" y="7.62" size="3.81" layer="91">6</text>
-<text x="327.66" y="7.62" size="1.778" layer="91">Added LDO for power off VSYS</text>
+<text x="414.02" y="7.62" size="3.81" layer="91">6.1</text>
+<text x="327.66" y="7.62" size="1.778" layer="91">Changed R20</text>
 <text x="327.406" y="11.176" size="2.54" layer="91">-----------------------REVISION NOTES</text>
 <text x="307.34" y="165.1" size="1.27" layer="91">Add 15pF capacitors in 
 EMI Constrained environment</text>
@@ -19220,10 +19263,6 @@ USB_UP_N)</text>
 <attribute name="VALUE" x="40.259" y="17.78" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="SUPPLY6" gate="G$1" x="12.7" y="76.2"/>
-<instance part="R20" gate="G$1" x="340.36" y="55.88" smashed="yes" rot="R90">
-<attribute name="NAME" x="342.6714" y="49.276" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="343.408" y="57.912" size="1.778" layer="96" rot="R90"/>
-</instance>
 <instance part="VSYS" gate="VCC" x="261.62" y="68.58" smashed="yes">
 <attribute name="VALUE" x="264.16" y="71.12" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -19281,6 +19320,7 @@ USB_UP_N)</text>
 <instance part="GND40" gate="1" x="144.78" y="63.5"/>
 <instance part="GND41" gate="1" x="170.18" y="63.5"/>
 <instance part="GND42" gate="1" x="177.8" y="63.5"/>
+<instance part="R20" gate="G$1" x="340.36" y="55.88" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -19697,7 +19737,6 @@ USB_UP_N)</text>
 <wire x1="261.62" y1="30.48" x2="261.62" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="R20" gate="G$1" pin="1"/>
 <pinref part="GND24" gate="1" pin="GND"/>
 <wire x1="340.36" y1="43.18" x2="340.36" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="AG9805MT" gate="G$1" pin="-VDC"/>
@@ -19716,6 +19755,7 @@ USB_UP_N)</text>
 <wire x1="347.98" y1="48.26" x2="340.36" y2="48.26" width="0.1524" layer="91"/>
 <junction x="347.98" y="48.26"/>
 <junction x="340.36" y="48.26"/>
+<pinref part="R20" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U4" gate="G$1" pin="USB_ID"/>
@@ -21233,9 +21273,9 @@ USB_UP_N)</text>
 <wire x1="337.82" y1="60.96" x2="337.82" y2="66.04" width="0.1524" layer="91"/>
 <junction x="337.82" y="60.96"/>
 <pinref part="C34" gate="G$1" pin="1"/>
-<junction x="340.36" y="60.96"/>
 <pinref part="5V" gate="1" pin="+5V"/>
 <pinref part="R20" gate="G$1" pin="2"/>
+<junction x="340.36" y="60.96"/>
 </segment>
 </net>
 <net name="N$37" class="0">
